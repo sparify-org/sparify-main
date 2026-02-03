@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sparify</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+<style>
+/* ═══════════════════ ROOT ═══════════════════ */
+:root {
+  --teal:       #00B1B7;
+  --teal-deep:  #0096a0;
+  --teal-soft:  #00d4da;
+  --teal-glow:  rgba(0,177,183,.13);
+  --teal-line:  rgba(0,177,183,.25);
+  --ink:        #1a1a1a;
+  --ink-mid:    #4a4f54;
+  --ink-light:  #8a9097;
+  --paper:      #fafafa;
+  --paper-off:  #f4f5f6;
+  --white:      #ffffff;
+  --shadow-sm:  0 2px 12px rgba(0,0,0,.06);
+  --shadow-md:  0 8px 40px rgba(0,0,0,.08);
+  --shadow-lg:  0 20px 60px rgba(0,0,0,.1);
+}
+
+/* ═══════════════════ RESET ═══════════════════ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Montserrat',sans-serif;
+  background:var(--white);
+  color:var(--ink);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ═══════════════════ NAV ═══════════════════ */
+.nav {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  padding:0 56px;
+  height:72px;
+  display:flex; align-items:center; justify-content:space-between;
+  background:rgba(255,255,255,.82);
+  backdrop-filter:blur(18px) saturate(1.4);
+  -webkit-backdrop-filter:blur(18px) saturate(1.4);
+  border-bottom:1px solid rgba(0,0,0,.06);
+  transition:box-shadow .35s;
+}
+.nav.scrolled { box-shadow:var(--shadow-sm); }
+.nav-logo img {
+  height:64px;
+  /* logo is white — on light bg we invert it to teal-ish dark */
+  filter:invert(1) sepia(1) saturate(3) hue-rotate(155deg) brightness(.85);
+}
+.nav-links { display:flex; gap:36px; list-style:none; }
+.nav-links a {
+  color:var(--ink-mid); text-decoration:none;
+  font-size:.78rem; font-weight:500; letter-spacing:.11em; text-transform:uppercase;
+  position:relative; transition:color .3s;
+}
+.nav-links a::after {
+  content:''; position:absolute; bottom:-4px; left:0; width:0; height:1.5px;
+  background:var(--teal); transition:width .35s cubic-bezier(.4,0,.2,1);
+}
+.nav-links a:hover { color:var(--teal-deep); }
+.nav-links a:hover::after { width:100%; }
+.nav-cta {
+  padding:10px 28px; border-radius:50px;
+  background:var(--teal); color:#fff; border:none;
+  font-family:'Montserrat',sans-serif; font-size:.78rem; font-weight:600;
+  letter-spacing:.1em; text-transform:uppercase; cursor:pointer;
+  box-shadow:0 4px 16px rgba(0,177,183,.3);
+  transition:transform .2s, box-shadow .25s;
+  text-decoration:none;
+}
+.nav-cta:hover { transform:translateY(-1px); box-shadow:0 6px 24px rgba(0,177,183,.4); }
+
+/* ═══════════════════ HERO ═══════════════════ */
+.hero {
+  position:relative;
+  height:100vh; min-height:700px;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  background:transparent;
+  overflow:hidden;
+}
+/* animated background: teal → white fade */
+.hero::before{
+  content:'';
+  position:absolute; inset:-20%;
+  background:linear-gradient(180deg, var(--teal) 0%, rgba(0,177,183,.25) 35%, var(--white) 78%);
+  background-size:140% 140%;
+  animation:bgFloat 14s ease-in-out infinite alternate;
+  transform:translateZ(0);
+  z-index:0;
+}
+@keyframes bgFloat{
+  0%{ background-position:50% 0%;   transform:translate(-2%, -1%) scale(1.02); }
+  100%{ background-position:50% 100%; transform:translate(2%, 1%) scale(1.04); }
+}
+
+/* ── subtle ambient teal glows on white ── */
+.ambient { position:absolute; border-radius:50%; pointer-events:none; z-index:1; }
+.amb-1 { width:900px; height:600px; background:radial-gradient(ellipse at center, rgba(0,177,183,.11) 0%, transparent 70%); top:-200px; left:-250px; }
+.amb-2 { width:700px; height:500px; background:radial-gradient(ellipse at center, rgba(0,212,218,.08) 0%, transparent 65%); bottom:-150px; right:-180px; animation:ambDrift 20s ease-in-out infinite alternate; }
+.amb-3 { width:400px; height:400px; background:radial-gradient(ellipse at center, rgba(0,177,183,.07) 0%, transparent 60%); top:45%; left:55%; animation:ambDrift 28s ease-in-out infinite alternate-reverse; }
+@keyframes ambDrift { to { transform:translate(40px,30px) scale(1.06); } }
+
+/* ── the big SPARIFY ── fades out into white at bottom ── */
+.hero-title-stage {
+  position:relative; z-index:3;
+  text-align:center;
+  /* mask: visible top, dissolves to white at bottom */
+  -webkit-mask-image:linear-gradient(180deg, black 0%, black 50%, transparent 85%);
+  mask-image:        linear-gradient(180deg, black 0%, black 50%, transparent 85%);
+}
+.hero-title {
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(140px,23vw,280px);
+  font-weight:700;
+  line-height:.85;
+  letter-spacing:-.04em;
+  /* gradient: teal top → very light teal bottom (disappears into white) */
+  background:linear-gradient(
+    180deg,
+    var(--teal-deep)    0%,
+    var(--teal)         25%,
+    rgba(0,177,183,.55) 55%,
+    rgba(0,177,183,.12) 80%,
+    transparent         100%
+  );
+  -webkit-background-clip:text; background-clip:text;
+  color:transparent;
+  animation:titleUp 1.4s cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes titleUp {
+  from { opacity:0; transform:translateY(70px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* ── white fog band that the title melts into ── */
+.fog-white {
+  position:absolute; left:0; right:0; bottom:0;
+  height:52%; z-index:4; pointer-events:none;
+  background:linear-gradient(
+    0deg,
+    var(--white)                    0%,
+    var(--white)                   18%,
+    rgba(255,255,255,.9)           35%,
+    rgba(255,255,255,.55)          52%,
+    transparent                    100%
+  );
+}
+
+/* ── logo + tagline above the fog ── */
+.hero-center {
+  position:relative; z-index:5;
+  display:flex; flex-direction:column; align-items:center; gap:14px;
+  margin-top:-32px;
+  animation:fadeIn .8s .35s cubic-bezier(.22,1,.36,1) both;
+}
+.hero-center .logo-ring {
+  width:68px; height:68px; border-radius:50%;
+  border:2px solid var(--teal-line);
+  display:flex; align-items:center; justify-content:center;
+  background:var(--white);
+  box-shadow:0 0 32px rgba(0,177,183,.14);
+}
+.hero-center .logo-ring img {
+  height:34px;
+  filter:invert(1) sepia(1) saturate(3) hue-rotate(155deg) brightness(.85);
+}
+.hero-tagline {
+  font-size:.82rem; font-weight:400; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--ink-light);
+}
+.hero-tagline em { font-style:normal; color:var(--teal); font-weight:600; }
+
+/* ── scroll cue ── */
+.scroll-cue {
+  position:absolute; bottom:32px; left:50%; transform:translateX(-50%);
+  z-index:6; display:flex; flex-direction:column; align-items:center; gap:6px;
+  color:var(--ink-light); font-size:.64rem; letter-spacing:.22em; text-transform:uppercase;
+}
+.scroll-cue .line {
+  width:1px; height:32px;
+  background:linear-gradient(180deg, var(--teal), transparent);
+  animation:bobLine 2.2s ease-in-out infinite;
+}
+@keyframes bobLine {
+  0%,100%{opacity:.2;transform:scaleY(.45);}
+  50%{opacity:.9;transform:scaleY(1);}
+}
+@keyframes fadeIn {
+  from{opacity:0;transform:translateY(16px);}
+  to  {opacity:1;transform:translateY(0);}
+}
+
+/* ═══════════════════ STATS STRIP ═══════════════════ */
+.stats {
+  display:flex; justify-content:center; gap:80px; flex-wrap:wrap;
+  padding:60px 24px;
+  background:var(--paper-off);
+  border-top:1px solid rgba(0,0,0,.05);
+  border-bottom:1px solid rgba(0,0,0,.05);
+}
+.stat { text-align:center; }
+.stat-num {
+  font-family:'Montserrat',sans-serif;
+  font-size:2.8rem; font-weight:700; color:var(--teal-deep);
+}
+.stat-label {
+  margin-top:4px; font-size:.7rem; font-weight:500;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--ink-light);
+}
+
+/* ═══════════════════ SECTION HELPERS ═══════════════════ */
+.sec-label {
+  text-align:center; margin-bottom:8px;
+  font-size:.7rem; font-weight:600; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--teal);
+}
+.sec-title {
+  text-align:center;
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(2rem,3.8vw,3rem); font-weight:600;
+  color:var(--ink); max-width:520px; margin:0 auto; line-height:1.2;
+}
+.sec-body {
+  text-align:center; max-width:480px; margin:16px auto 0;
+  font-size:.88rem; line-height:1.75; color:var(--ink-light); font-weight:300;
+}
+.divider-line {
+  width:48px; height:2px; background:var(--teal); margin:28px auto 0; border-radius:1px;
+}
+
+/* ═══════════════════ FEATURES ═══════════════════ */
+.features { padding:120px 48px; background:var(--white); }
+.feat-grid {
+  max-width:1020px; margin:56px auto 0;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+}
+.feat-card {
+  background:var(--white); border-radius:24px;
+  border:1px solid rgba(0,0,0,.07);
+  padding:48px 36px 40px;
+  position:relative; overflow:hidden;
+  transition:transform .3s, box-shadow .35s, border-color .35s;
+}
+.feat-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg, transparent, var(--teal), transparent);
+  opacity:0; transition:opacity .4s;
+}
+.feat-card:hover {
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-md);
+  border-color:rgba(0,177,183,.2);
+}
+.feat-card:hover::before { opacity:1; }
+
+.feat-icon {
+  width:56px; height:56px; border-radius:16px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.6rem; margin-bottom:24px;
+  background:linear-gradient(135deg, rgba(0,177,183,.1), rgba(0,212,218,.05));
+}
+.feat-card h3 {
+  font-family:'Montserrat',sans-serif;
+  font-size:1.45rem; font-weight:600; color:var(--ink); margin-bottom:10px;
+}
+.feat-card p {
+  font-size:.85rem; line-height:1.75; color:var(--ink-light); font-weight:300;
+}
+
+/* ═══════════════════ TEAM ═══════════════════ */
+.team { padding:120px 48px; background:var(--paper-off); }
+.team-grid {
+  max-width:860px; margin:56px auto 0;
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(148px,1fr)); gap:18px;
+}
+.member {
+  background:var(--white); border-radius:20px;
+  border:1px solid rgba(0,0,0,.06);
+  padding:34px 20px 30px;
+  text-align:center;
+  transition:transform .28s, box-shadow .3s, border-color .3s;
+  position:relative; overflow:hidden;
+}
+.member::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg, transparent, var(--teal), transparent);
+  opacity:0; transition:opacity .35s;
+}
+.member:hover {
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-sm);
+  border-color:rgba(0,177,183,.18);
+}
+.member:hover::after { opacity:1; }
+
+/* avatar circle */
+.member-avatar {
+  width:52px; height:52px; border-radius:50%; margin:0 auto 16px;
+  background:linear-gradient(135deg, var(--teal-soft), var(--teal-deep));
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Montserrat',sans-serif;
+  font-size:1.35rem; font-weight:700; color:#fff;
+}
+.member-role {
+  font-size:.62rem; font-weight:600; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--teal); margin-bottom:5px;
+}
+.member-name {
+  font-family:'Montserrat',sans-serif;
+  font-size:1.15rem; font-weight:600; color:var(--ink);
+}
+
+/* ═══════════════════ CTA ═══════════════════ */
+.cta-wrap { padding:100px 48px; background:var(--white); }
+.cta-inner {
+  max-width:760px; margin:0 auto;
+  border-radius:32px; padding:86px 52px;
+  text-align:center; position:relative; overflow:hidden;
+  background:
+    radial-gradient(ellipse 65% 75% at 25% 50%, rgba(0,177,183,.08) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 60% at 78% 42%, rgba(0,212,218,.06) 0%, transparent 60%),
+    var(--paper-off);
+  border:1px solid rgba(0,177,183,.14);
+  box-shadow:var(--shadow-md);
+}
+.cta-inner h2 {
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(2rem,4vw,2.9rem); font-weight:600; color:var(--ink); line-height:1.15;
+}
+.cta-inner h2 span { color:var(--teal); }
+.cta-inner p {
+  margin-top:16px; font-size:.9rem; color:var(--ink-light);
+  max-width:420px; margin-left:auto; margin-right:auto;
+  font-weight:300; line-height:1.75;
+}
+.btn-cta {
+  display:inline-block; margin-top:38px;
+  padding:16px 52px; border-radius:50px;
+  background:var(--teal); color:#fff; border:none;
+  font-family:'Montserrat',sans-serif; font-size:.82rem; font-weight:600;
+  letter-spacing:.12em; text-transform:uppercase; cursor:pointer;
+  text-decoration:none;
+  box-shadow:0 6px 28px rgba(0,177,183,.38);
+  transition:transform .22s, box-shadow .25s;
+}
+.btn-cta:hover { transform:translateY(-2px); box-shadow:0 10px 38px rgba(0,177,183,.48); }
+
+/* ═══════════════════ FOOTER ═══════════════════ */
+footer {
+  padding:72px 48px 36px;
+  background:var(--ink);
+  color:rgba(255,255,255,.7);
+}
+.footer-inner {
+  max-width:940px; margin:0 auto;
+  display:grid; grid-template-columns:2.2fr 1fr 1fr 1fr; gap:40px;
+}
+.footer-brand img {
+  height:30px; margin-bottom:16px;
+  /* white logo on dark bg — keep as-is */
+}
+.footer-brand p { font-size:.8rem; line-height:1.8; color:rgba(255,255,255,.42); max-width:240px; }
+.footer-col h4 {
+  font-size:.65rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--teal-soft); margin-bottom:18px;
+}
+.footer-col ul { list-style:none; }
+.footer-col li { margin-bottom:10px; }
+.footer-col a { color:rgba(255,255,255,.45); text-decoration:none; font-size:.82rem; transition:color .3s; }
+.footer-col a:hover { color:var(--teal-soft); }
+.footer-bottom {
+  max-width:940px; margin:48px auto 0;
+  padding-top:24px; border-top:1px solid rgba(255,255,255,.08);
+  display:flex; justify-content:space-between;
+  font-size:.72rem; color:rgba(255,255,255,.3);
+}
+
+/* ═══════════════════ RESPONSIVE ═══════════════════ */
+@media(max-width:900px){
+  .feat-grid{ grid-template-columns:1fr 1fr; }
+}
+@media(max-width:680px){
+  .nav{ padding:0 22px; }
+  .nav-links{ display:none; }
+  .hero-title{ font-size:clamp(100px,26vw,170px); }
+  .feat-grid{ grid-template-columns:1fr; max-width:420px; }
+  .features,.team,.cta-wrap{ padding-left:22px; padding-right:22px; }
+  .cta-inner{ padding:56px 24px; }
+  .footer-inner{ grid-template-columns:1fr 1fr; }
+  .footer-bottom{ flex-direction:column; gap:4px; text-align:center; }
+  .stats{ gap:36px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════ NAV ══════ -->
+<nav class="nav" id="nav">
+  <div class="nav-logo">
+    <img src="https://i.ibb.co/3y5wkF5w/LOGO-white-transparent-bg.webp" alt="Sparify"/>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#cta">Kontakt</a></li>
+  </ul>
+  <a href="https://app.sparify.org" class="nav-cta">Starten</a>
+</nav>
+
+<!-- ══════ HERO ══════ -->
+<section class="hero">
+  <div class="ambient amb-1"></div>
+  <div class="ambient amb-2"></div>
+  <div class="ambient amb-3"></div>
+
+  <!-- giant title that dissolves into white at bottom -->
+  <div class="hero-title-stage">
+    <div class="hero-title">SPARIFY</div>
+  </div>
+
+  <!-- white fog eats the bottom of the title -->
+  <div class="fog-white"></div>
+
+  <!-- logo pill + tagline floating above -->
+
+  <div class="scroll-cue">
+    <span>Entdecken</span>
+    <div class="line"></div>
+  </div>
+</section>
+
+<!-- ══════ FEATURES ══════ -->
+<section class="features" id="features">
+  <div class="sec-label">Was Sparify kann</div>
+  <h2 class="sec-title">Sparen, neu gedacht</h2>
+  <p class="sec-body">Eine moderne Art, Geld zu verwalten — spielerisch, einfach und komplett ohne Bankkonto.</p>
+  <div class="divider-line"></div>
+
+  <div class="feat-grid">
+    <div class="feat-card">
+      <div class="feat-icon">📱</div>
+      <h3>Box trifft App</h3>
+      <p>Verbinde deine physische Sparbox seamless mit der App. Kein Bankkonto nötig — alles in einem Klick.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">💰</div>
+      <h3>Spielerisch Sparen</h3>
+      <p>Verwalte dein Taschengeld mit Spaß. Jeder Sparschritt bringt dich näher zum Ziel — motivierend und übersichtlich.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🚀</div>
+      <h3>Deine Reise</h3>
+      <p>Starte deine eigene finanzielle Reise. Klar strukturiert, ohne Stress — Verantwortung lernen wird zum Erlebnis.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ TEAM ══════ -->
+<section class="team" id="team">
+  <div class="sec-label">Hinter Sparify</div>
+  <h2 class="sec-title">Unser Team</h2>
+  <p class="sec-body">Eine Junior Company aus Innsbruck.</p>
+  <div class="divider-line"></div>
+
+  <div class="team-grid">
+    <div class="member">
+      <div class="member-avatar">MC</div>
+      <div class="member-role">CEO</div>
+      <div class="member-name">Matteo Cacic</div>
+    </div>
+    <div class="member">
+      <div class="member-avatar">DS</div>
+      <div class="member-role">COO</div>
+      <div class="member-name">Dogukan Sentürk</div>
+    </div>
+    <div class="member">
+      <div class="member-avatar">AM</div>
+      <div class="member-role">Maschinenbauleiter</div>
+      <div class="member-name">Alperen Muratgül</div>
+    </div>
+    <div class="member">
+      <div class="member-avatar">KA</div>
+      <div class="member-role">Personalleiter</div>
+      <div class="member-name">Kilian Andre</div>
+    </div>
+    <div class="member">
+      <div class="member-avatar">VD</div>
+      <div class="member-role">Softwareentwickler</div>
+      <div class="member-name">Vlas Dvoryanov</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ CTA ══════ -->
+<section class="cta-wrap" id="cta">
+  <div class="cta-inner">
+    <h2>Bereit zu <span>sparen?</span></h2>
+    <p>Starte jetzt deine finanzielle Reise — ohne Bankkonto, ohne Stress. Einfach anfangen und Spaß beim Sparen haben.</p>
+    <a href="https://app.sparify.org" class="btn-cta">Los geht's</a>
+  </div>
+</section>
+
+<!-- ══════ FOOTER ══════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="https://i.ibb.co/3y5wkF5w/LOGO-white-transparent-bg.webp" alt="Sparify"/>
+      <p>Die Zukunft des Sparens.<br>Eine Junior Company aus Innsbruck.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Produkt</h4>
+      <ul>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Wie es funktioniert</a></li>
+        <li><a href="https://app.sparify.org">App öffnen</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Unternehmen</h4>
+      <ul>
+        <li><a href="#">Über uns</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Rechtlich</h4>
+      <ul>
+        <li><a href="#">Datenschutz</a></li>
+        <li><a href="#">AGB</a></li>
+        <li><a href="#">Cookies</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Sparify. Alle Rechte vorbehalten.</span>
+    <span>sparify.org</span>
+  </div>
+</footer>
+
+<!-- ══════ NAV SCROLL SHADOW JS ══════ -->
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+</script>
+
+</body>
+</html>
