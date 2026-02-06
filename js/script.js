@@ -110,11 +110,17 @@ const doc = document.documentElement;
 // OPTIMIZED: Scroll reveal with better performance
 (function(){
   const targets = [
-    document.querySelector('.features'),
-    document.querySelector('.team'),
-    document.querySelector('.cta-wrap'),
-    ...document.querySelectorAll('.feat-card'),
-    ...document.querySelectorAll('.member')
+    document.querySelector('.problem-section'),
+    document.querySelector('.solution-section'),
+    document.querySelector('.app-showcase'),
+    document.querySelector('.box-showcase'),
+    document.querySelector('.calculator-section'),
+    document.querySelector('.team-section'),
+    ...document.querySelectorAll('.problem-card'),
+    ...document.querySelectorAll('.app-feature-card'),
+    ...document.querySelectorAll('.box-feature-item'),
+    ...document.querySelectorAll('.team-member'),
+    ...document.querySelectorAll('.reveal')
   ].filter(Boolean);
 
   targets.forEach(el => el.classList.add('reveal'));
@@ -179,61 +185,89 @@ if (document.readyState === 'loading') {
   initDarkMode();
 }
 
-// ═══════════════════ SAVINGS CALCULATOR ═══════════════════
+// ═══════════════════ ACTIVE NAV HIGHLIGHTING ═══════════════════
 (function() {
-  const slider = document.getElementById('monthly-money');
-  const monthlyValue = document.getElementById('monthly-value');
-  const yearlySavings = document.getElementById('yearly-savings');
-  const savingsBarFill = document.getElementById('savings-bar-fill');
+  const sections = ['hero', 'problem', 'solution', 'app', 'box', 'team'];
 
-  if (!slider) return;
+  function updateActiveNavLink() {
+    const scrollPos = window.scrollY + 100; // Offset for sticky header
 
-  const SAVINGS_RATE = 0.20; // 20% savings rate
-  const MAX_YEARLY = 500 * 12 * SAVINGS_RATE; // Max possible yearly savings
+    sections.forEach(sectionId => {
+      const section = document.getElementById(sectionId);
+      const navLink = document.querySelector(`a[href="#${sectionId}"]`);
 
-  function updateCalculator() {
-    const monthly = parseInt(slider.value);
-    const yearly = Math.round(monthly * 12 * SAVINGS_RATE);
-    const percentage = (yearly / MAX_YEARLY) * 100;
+      if (section && navLink) {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
 
-    // Update progress for gradient
-    const sliderProgress = ((monthly - 10) / (500 - 10)) * 100;
-    slider.style.setProperty('--slider-progress', `${sliderProgress}%`);
-
-    // Update values
-    monthlyValue.textContent = monthly;
-    yearlySavings.textContent = yearly;
-    savingsBarFill.style.width = `${percentage}%`;
+        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+          navLink.classList.add('active');
+        } else {
+          navLink.classList.remove('active');
+        }
+      }
+    });
   }
 
-  slider.addEventListener('input', updateCalculator);
-  updateCalculator(); // Initial calculation
+  // Update on scroll (throttled via requestAnimationFrame)
+  let navTicking = false;
+  window.addEventListener('scroll', () => {
+    if (!navTicking) {
+      navTicking = true;
+      requestAnimationFrame(() => {
+        navTicking = false;
+        updateActiveNavLink();
+      });
+    }
+  }, { passive: true });
+
+  // Initial update
+  updateActiveNavLink();
 })();
 
-// ═══════════════════ MOBILE MENU TOGGLE ═══════════════════
+// ═══════════════════ SMOOTH SCROLL WITH OFFSET ═══════════════════
 (function() {
-  const toggle = document.getElementById('mobile-menu-toggle');
-  const menu = document.getElementById('nav-links');
-  const overlay = document.getElementById('mobile-menu-overlay');
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
 
-  if (!toggle) return;
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const targetSection = document.getElementById(targetId);
 
-  function toggleMenu() {
-    toggle.classList.toggle('active');
-    menu.classList.toggle('active');
-    overlay.classList.toggle('active');
-    document.body.style.overflow = toggle.classList.contains('active') ? 'hidden' : '';
-  }
-
-  toggle.addEventListener('click', toggleMenu);
-  overlay.addEventListener('click', toggleMenu);
-
-  // Close menu when clicking links
-  menu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      if (window.innerWidth <= 768) {
-        toggleMenu();
+      if (targetSection) {
+        const offsetTop = targetSection.offsetTop - 80; // Header height
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
       }
     });
   });
+})();
+
+// ═══════════════════ IMAGE LAZY LOADING FALLBACK ═══════════════════
+// For browsers that don't support native lazy loading
+(function() {
+  if ('loading' in HTMLImageElement.prototype) {
+    // Native lazy loading supported
+    return;
+  }
+
+  // Fallback: Use IntersectionObserver for lazy loading
+  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+  if (lazyImages.length === 0) return;
+
+  const imageObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.src = img.dataset.src || img.src;
+        imageObserver.unobserve(img);
+      }
+    });
+  });
+
+  lazyImages.forEach(img => imageObserver.observe(img));
 })();

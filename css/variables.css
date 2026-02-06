@@ -1,0 +1,213 @@
+/* ═══════════════════════════════════════════════
+   SPARIFY DESIGN TOKENS
+   Complete rebuild with new color system
+   ═══════════════════════════════════════════════ */
+
+:root {
+  /* ═══════════════════ PRIMARY COLOR SYSTEM ═══════════════════ */
+  --color-primary:        #00b1b7;  /* Teal - main branding */
+  --color-primary-deep:   #0096a0;  /* Darker teal */
+  --color-primary-soft:   #00d4da;  /* Lighter teal */
+  --color-primary-glow:   rgba(0, 177, 183, 0.13);
+  --color-primary-line:   rgba(0, 177, 183, 0.25);
+
+  /* ═══════════════════ SECONDARY COLOR A - ORANGE ═══════════════════ */
+  --color-secondary-a:       #e77938;  /* Orange - accents, warnings, CTA variety */
+  --color-secondary-a-deep:  #d66324;
+  --color-secondary-a-soft:  #ff8f50;
+  --color-secondary-a-glow:  rgba(231, 121, 56, 0.13);
+  --color-secondary-a-line:  rgba(231, 121, 56, 0.25);
+
+  /* ═══════════════════ SECONDARY COLOR B - YELLOW ═══════════════════ */
+  --color-secondary-b:       #f5db6f;  /* Yellow - highlights, bg textures */
+  --color-secondary-b-deep:  #e8c94e;
+  --color-secondary-b-soft:  #ffeaa0;
+  --color-secondary-b-glow:  rgba(245, 219, 111, 0.13);
+  --color-secondary-b-line:  rgba(245, 219, 111, 0.25);
+
+  /* ═══════════════════ BASE COLORS ═══════════════════ */
+  --color-base:           #ffffff;  /* Pure white */
+  --color-ink:            #1a1a1a;  /* Near black for text */
+  --color-ink-mid:        #4a4f54;  /* Medium gray */
+  --color-ink-light:      #8a9097;  /* Light gray */
+  --color-paper:          #fafafa;  /* Off-white background */
+  --color-paper-off:      #f4f5f6;  /* Slightly darker off-white */
+
+  /* ═══════════════════ SHADOWS ═══════════════════ */
+  --shadow-sm:  0 2px 12px rgba(0, 0, 0, 0.06);
+  --shadow-md:  0 8px 40px rgba(0, 0, 0, 0.08);
+  --shadow-lg:  0 16px 60px rgba(0, 0, 0, 0.12);
+  --shadow-xl:  0 24px 80px rgba(0, 0, 0, 0.16);
+
+  /* ═══════════════════ SPACING SCALE (8px base) ═══════════════════ */
+  --space-xs:   0.5rem;   /* 8px */
+  --space-sm:   1rem;     /* 16px */
+  --space-md:   1.5rem;   /* 24px */
+  --space-lg:   2rem;     /* 32px */
+  --space-xl:   3rem;     /* 48px */
+  --space-2xl:  4rem;     /* 64px */
+  --space-3xl:  6rem;     /* 96px */
+  --space-4xl:  8rem;     /* 128px */
+
+  /* ═══════════════════ TYPOGRAPHY SCALE ═══════════════════ */
+  --font-family-base: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --font-size-xs:     0.75rem;   /* 12px */
+  --font-size-sm:     0.875rem;  /* 14px */
+  --font-size-base:   1rem;      /* 16px */
+  --font-size-lg:     1.125rem;  /* 18px */
+  --font-size-xl:     1.25rem;   /* 20px */
+  --font-size-2xl:    1.5rem;    /* 24px */
+  --font-size-3xl:    2rem;      /* 32px */
+  --font-size-4xl:    2.5rem;    /* 40px */
+  --font-size-5xl:    3rem;      /* 48px */
+  --font-size-6xl:    4rem;      /* 64px */
+  --font-size-7xl:    5rem;      /* 80px */
+
+  --font-weight-regular:  400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+  --font-weight-extrabold: 800;
+
+  --line-height-tight:    1.2;
+  --line-height-snug:     1.375;
+  --line-height-base:     1.5;
+  --line-height-relaxed:  1.8;
+
+  --letter-spacing-tight:  -0.02em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide:   0.05em;
+  --letter-spacing-wider:  0.1em;
+  --letter-spacing-widest: 0.3em;
+
+  /* ═══════════════════ BORDER RADIUS ═══════════════════ */
+  --radius-sm:  8px;
+  --radius-md:  16px;
+  --radius-lg:  24px;
+  --radius-xl:  32px;
+  --radius-2xl: 40px;
+  --radius-full: 9999px;
+
+  /* ═══════════════════ TRANSITIONS ═══════════════════ */
+  --transition-fast:   150ms ease;
+  --transition-base:   300ms cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-slow:   600ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ═══════════════════ Z-INDEX SCALE ═══════════════════ */
+  --z-base:       1;
+  --z-dropdown:   100;
+  --z-sticky:     150;
+  --z-overlay:    199;
+  --z-modal:      200;
+  --z-popover:    300;
+  --z-tooltip:    400;
+
+  /* ═══════════════════ BREAKPOINTS (for reference) ═══════════════════ */
+  --breakpoint-sm:  480px;   /* Small phones */
+  --breakpoint-md:  768px;   /* Tablets / large phones */
+  --breakpoint-lg:  968px;   /* Small laptops */
+  --breakpoint-xl:  1200px;  /* Desktops */
+  --breakpoint-2xl: 1440px;  /* Large desktops */
+
+  /* ═══════════════════ CUSTOM PARALLAX VARIABLES ═══════════════════ */
+  /* Keep existing for scroll/mouse parallax effects */
+  --scroll: 0;
+  --mx: 0;
+  --my: 0;
+}
+
+/* ═══════════════════════════════════════════════
+   DARK MODE OVERRIDES
+   ═══════════════════════════════════════════════ */
+
+:root[data-theme="dark"] {
+  /* Primary colors - brighter for dark mode */
+  --color-primary:        #00d4da;  /* Brighter teal */
+  --color-primary-deep:   #00b1b7;
+  --color-primary-soft:   #00e8ee;
+  --color-primary-glow:   rgba(0, 212, 218, 0.18);
+  --color-primary-line:   rgba(0, 212, 218, 0.30);
+
+  /* Secondary A - brighter orange */
+  --color-secondary-a:       #ff8f50;
+  --color-secondary-a-deep:  #e77938;
+  --color-secondary-a-soft:  #ffa570;
+  --color-secondary-a-glow:  rgba(255, 143, 80, 0.18);
+  --color-secondary-a-line:  rgba(255, 143, 80, 0.30);
+
+  /* Secondary B - brighter yellow */
+  --color-secondary-b:       #ffeaa0;
+  --color-secondary-b-deep:  #f5db6f;
+  --color-secondary-b-soft:  #fff4c0;
+  --color-secondary-b-glow:  rgba(255, 234, 160, 0.18);
+  --color-secondary-b-line:  rgba(255, 234, 160, 0.30);
+
+  /* Base colors inverted */
+  --color-ink:            #e8e8e8;  /* Light text */
+  --color-ink-mid:        #b0b5ba;
+  --color-ink-light:      #8a9097;
+  --color-paper:          #0a1929;  /* Dark navy background */
+  --color-paper-off:      #0d2136;  /* Slightly lighter navy */
+  --color-base:           #162a3f;  /* Dark surface */
+
+  /* Shadows with color glow */
+  --shadow-sm:  0 2px 12px rgba(0, 212, 218, 0.08);
+  --shadow-md:  0 8px 40px rgba(0, 212, 218, 0.12);
+  --shadow-lg:  0 16px 60px rgba(0, 212, 218, 0.16);
+  --shadow-xl:  0 24px 80px rgba(0, 212, 218, 0.20);
+}
+
+/* System preference detection (auto dark mode) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-primary:        #00d4da;
+    --color-primary-deep:   #00b1b7;
+    --color-primary-soft:   #00e8ee;
+    --color-primary-glow:   rgba(0, 212, 218, 0.18);
+    --color-primary-line:   rgba(0, 212, 218, 0.30);
+
+    --color-secondary-a:       #ff8f50;
+    --color-secondary-a-deep:  #e77938;
+    --color-secondary-a-soft:  #ffa570;
+    --color-secondary-a-glow:  rgba(255, 143, 80, 0.18);
+    --color-secondary-a-line:  rgba(255, 143, 80, 0.30);
+
+    --color-secondary-b:       #ffeaa0;
+    --color-secondary-b-deep:  #f5db6f;
+    --color-secondary-b-soft:  #fff4c0;
+    --color-secondary-b-glow:  rgba(255, 234, 160, 0.18);
+    --color-secondary-b-line:  rgba(255, 234, 160, 0.30);
+
+    --color-ink:            #e8e8e8;
+    --color-ink-mid:        #b0b5ba;
+    --color-ink-light:      #8a9097;
+    --color-paper:          #0a1929;
+    --color-paper-off:      #0d2136;
+    --color-base:           #162a3f;
+
+    --shadow-sm:  0 2px 12px rgba(0, 212, 218, 0.08);
+    --shadow-md:  0 8px 40px rgba(0, 212, 218, 0.12);
+    --shadow-lg:  0 16px 60px rgba(0, 212, 218, 0.16);
+    --shadow-xl:  0 24px 80px rgba(0, 212, 218, 0.20);
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   REDUCED MOTION PREFERENCE
+   ═══════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms;
+    --transition-base: 0ms;
+    --transition-slow: 0ms;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

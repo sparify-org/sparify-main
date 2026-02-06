@@ -3,62 +3,209 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>AGB - Sparify</title>
+
+<!-- Primary Meta Tags -->
+<title>Allgemeine Geschäftsbedingungen - Sparify</title>
+<meta name="title" content="Allgemeine Geschäftsbedingungen - Sparify"/>
+<meta name="description" content="Allgemeine Geschäftsbedingungen von Sparify - Transparente Nutzungsbedingungen."/>
+<meta name="robots" content="noindex, nofollow"/>
+
+<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-<link rel="icon" type="image/png" href="https://i.ibb.co/m568zKGM/LOGO-white-transparent-bg.png">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="https://i.ibb.co/m568zKGM/LOGO-white-transparent-bg.png"/>
+<link rel="apple-touch-icon" href="https://i.ibb.co/m568zKGM/LOGO-white-transparent-bg.png"/>
+
+<!-- CSS -->
+<link rel="stylesheet" href="css/variables.css"/>
+<link rel="stylesheet" href="css/components.css"/>
+<link rel="stylesheet" href="css/sections.css"/>
 <link rel="stylesheet" href="css/style.css"/>
+
+<style>
+  .legal-page {
+    max-width: 900px;
+    margin: 140px auto 80px;
+    padding: 0 var(--space-xl);
+    position: relative;
+    z-index: 10;
+  }
+
+  .legal-page h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: var(--space-lg);
+    color: var(--color-ink);
+    font-weight: 800;
+  }
+
+  .legal-page h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin: var(--space-2xl) 0 var(--space-md);
+    color: var(--color-ink);
+    font-weight: 700;
+  }
+
+  .legal-page p {
+    color: var(--color-ink-mid);
+    margin: var(--space-md) 0;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .legal-page a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .legal-page a:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+  }
+
+  .legal-page ul {
+    margin: var(--space-md) 0;
+    padding-left: var(--space-xl);
+    color: var(--color-ink-mid);
+  }
+
+  .legal-page li {
+    margin: var(--space-xs) 0;
+    line-height: var(--line-height-relaxed);
+  }
+
+  .back-link {
+    margin-top: var(--space-2xl);
+  }
+</style>
 </head>
 <body>
 
+<!-- Background elements -->
+<div class="bg-sparkles" aria-hidden="true"></div>
+
+<!-- Navigation -->
 <nav class="nav visible scrolled" id="nav">
   <div class="nav-logo">
-    <a href="index.html">
-      <img src="https://i.ibb.co/3y5wkF5w/LOGO-white-transparent-bg.webp" alt="Sparify">
+    <a href="index.html" aria-label="Sparify Homepage">
+      <img src="https://i.ibb.co/3y5wkF5w/LOGO-white-transparent-bg.webp" alt="Sparify" width="120" height="30"/>
     </a>
   </div>
-  <ul class="nav-links">
-    <li><a href="index.html#features">Features</a></li>
-    <li><a href="index.html#team">Team</a></li>
-    <li><a href="mailto:sparify.at@gmail.com">Kontakt</a></li>
-  </ul>
-  <a href="https://app.sparify.org" target="_blank" class="nav-cta">Starten</a>
+
+  <div class="nav-actions">
+    <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html#problem">Problem</a></li>
+      <li><a href="index.html#solution">Lösung</a></li>
+      <li><a href="index.html#app">App</a></li>
+      <li><a href="index.html#box">Box</a></li>
+      <li><a href="index.html#team">Team</a></li>
+    </ul>
+
+    <div style="display: flex; align-items: center; gap: var(--space-md);">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Farbschema wechseln">
+        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+      <a href="https://app.sparify.org" target="_blank" rel="noopener noreferrer" class="nav-cta btn-primary">Starten</a>
+    </div>
+  </div>
 </nav>
 
-<main style="max-width: 900px; margin: 120px auto 80px; padding: 0 48px; position: relative; z-index: 10;">
-  <h1 style="font-size: 3rem; margin-bottom: 20px; color: var(--ink);">Allgemeine Geschäftsbedingungen</h1>
-  <p style="color: var(--ink-mid); margin: 30px 0; font-size: 1.1rem; line-height: 1.8;">
-    Diese Seite wird in Kürze verfügbar sein. Wir arbeiten daran, unsere AGB
-    zu erstellen und hier zu veröffentlichen.
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
+<!-- Main Content -->
+<main class="legal-page">
+  <h1>Allgemeine Geschäftsbedingungen</h1>
+
+  <p>
+    Diese Seite wird in Kürze verfügbar sein. Wir arbeiten daran, unsere Allgemeinen Geschäftsbedingungen
+    (AGB) zu erstellen und hier zu veröffentlichen.
   </p>
-  <p style="color: var(--ink-mid); margin: 30px 0; font-size: 1rem; line-height: 1.8;">
+
+  <h2>Geltungsbereich</h2>
+  <p>
+    Diese AGB gelten für die Nutzung der Sparify-App und der Sparbox. Sie regeln die Rechte und Pflichten
+    zwischen Ihnen als Nutzer und uns als Anbieter.
+  </p>
+
+  <h2>Leistungsumfang</h2>
+  <p>
+    Sparify bietet eine digitale App zur Verwaltung Ihres Taschengeldes in Verbindung mit einer physischen
+    Sparbox. Der Service umfasst:
+  </p>
+  <ul>
+    <li>Echtzeit-Tracking Ihrer Ersparnisse</li>
+    <li>Sparziele und Analysen</li>
+    <li>Automatische Synchronisation zwischen Box und App</li>
+    <li>Finanzbildung und spielerische Features</li>
+  </ul>
+
+  <h2>Nutzungsbedingungen</h2>
+  <p>
+    Die Nutzung von Sparify ist kostenlos. Es wird kein Bankkonto benötigt. Die genauen Nutzungsbedingungen
+    werden hier in Kürze veröffentlicht.
+  </p>
+
+  <h2>Kontakt</h2>
+  <p>
     Bei Fragen zu unseren Geschäftsbedingungen können Sie uns jederzeit unter
-    <a href="mailto:sparify.at@gmail.com" style="color: var(--teal); text-decoration: none;">sparify.at@gmail.com</a> kontaktieren.
+    <a href="mailto:sparify.at@gmail.com">sparify.at@gmail.com</a> kontaktieren.
   </p>
-  <a href="index.html" class="nav-cta" style="display: inline-block; margin-top: 30px;">Zurück zur Startseite</a>
+
+  <div class="back-link">
+    <a href="index.html" class="btn-secondary">Zurück zur Startseite</a>
+  </div>
 </main>
 
-<footer>
-  <div class="footer-inner">
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
     <div class="footer-brand">
-      <img src="https://i.ibb.co/3y5wkF5w/LOGO-white-transparent-bg.webp" alt="Sparify" style="height:30px; filter:brightness(0) invert(1);">
-      <p style="margin-top:15px; opacity:0.5;">Die Zukunft des Sparens.</p>
+      <img src="https://i.ibb.co/3y5wkF5w/LOGO-white-transparent-bg.webp" alt="Sparify" class="footer-logo"/>
+      <p class="footer-tagline">Sparen, das man anfassen kann.</p>
     </div>
+
     <div class="footer-col">
       <h4>Produkt</h4>
       <ul>
-        <li><a href="index.html#features">Features</a></li>
-        <li><a href="https://app.sparify.org" target="_blank">App öffnen</a></li>
+        <li><a href="index.html#problem">Problem</a></li>
+        <li><a href="index.html#solution">Lösung</a></li>
+        <li><a href="index.html#app">App</a></li>
+        <li><a href="index.html#box">Sparbox</a></li>
       </ul>
     </div>
+
     <div class="footer-col">
-      <h4>Support</h4>
+      <h4>Unternehmen</h4>
       <ul>
-        <li><a href="mailto:sparify.at@gmail.com">sparify.at@gmail.com</a></li>
         <li><a href="index.html#team">Team</a></li>
+        <li><a href="mailto:sparify.at@gmail.com">Kontakt</a></li>
+        <li><a href="https://app.sparify.org" target="_blank" rel="noopener noreferrer">App öffnen</a></li>
       </ul>
     </div>
+
     <div class="footer-col">
       <h4>Rechtlich</h4>
       <ul>
@@ -67,8 +214,15 @@
       </ul>
     </div>
   </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Sparify. Alle Rechte vorbehalten.</p>
+  </div>
 </footer>
 
+<!-- Scripts -->
 <script src="js/script.js"></script>
+<script src="js/mobile-menu.js"></script>
+
 </body>
 </html>
