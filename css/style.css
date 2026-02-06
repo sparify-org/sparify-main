@@ -11,7 +11,9 @@
 
 /* ═══════════════════ RESET & BASE STYLES ═══════════════════ */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -37,6 +39,45 @@ body {
 /* OPTIMIZED: Using will-change, reduced blur, and requestAnimationFrame in JS */
 /* Updated to use new color variables from variables.css */
 
+/* SVG Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-soft {
+  0% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.6;
+  }
+}
+
+.hero-image,
+.box-product-image,
+.feature-visual svg {
+  animation: float 6s ease-in-out infinite;
+}
+
+.sensor-indicator {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
 /* Base moving gradient layer with teal and orange */
 body::before {
   content: "";
@@ -52,8 +93,7 @@ body::before {
     linear-gradient(180deg,
       rgba(0, 177, 183, calc(0.60 - var(--scroll) * 0.48)) 0%,
       rgba(0, 177, 183, calc(0.20 - var(--scroll) * 0.12)) 34%,
-      var(--color-base) 78%
-    );
+      var(--color-base) 78%);
   transform: translate3d(0, calc(var(--scroll) * 18px), 0) scale(1.02);
   filter: saturate(1.05);
   animation: globalDrift 18s ease-in-out infinite alternate;
@@ -64,6 +104,7 @@ body::before {
   0% {
     background-position: 0% 0%, 100% 0%, 50% 0%;
   }
+
   100% {
     background-position: 20% 10%, 80% 6%, 50% 100%;
   }
@@ -92,6 +133,7 @@ body::after {
   0% {
     transform: translate3d(0, calc(var(--scroll) * -14px), 0) scale(1.05);
   }
+
   100% {
     transform: translate3d(0, calc(var(--scroll) * -18px - 14px), 0) scale(1.05);
   }
@@ -118,6 +160,7 @@ body::after {
   0% {
     background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
   }
+
   100% {
     background-position: 10% 20%, -10% 15%, 15% -10%, -5% -15%, 20% 10%;
   }
@@ -133,8 +176,7 @@ body::after {
     linear-gradient(180deg,
       rgba(0, 212, 218, calc(0.40 - var(--scroll) * 0.30)) 0%,
       rgba(0, 212, 218, calc(0.15 - var(--scroll) * 0.10)) 34%,
-      var(--color-paper) 78%
-    );
+      var(--color-paper) 78%);
 }
 
 :root[data-theme="dark"] body::after {
@@ -149,9 +191,17 @@ body::after {
 /* ═══════════════════ UTILITY CLASSES ═══════════════════ */
 
 /* Text alignment */
-.text-center { text-align: center; }
-.text-left { text-align: left; }
-.text-right { text-align: right; }
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
 
 /* Visibility */
 .visually-hidden {
@@ -169,6 +219,7 @@ body::after {
 /* ═══════════════════ PRINT STYLES ═══════════════════ */
 
 @media print {
+
   body::before,
   body::after,
   .bg-sparkles,
