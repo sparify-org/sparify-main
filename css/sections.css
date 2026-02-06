@@ -219,6 +219,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -384,9 +385,11 @@
   0% {
     box-shadow: 0 0 0 0 rgba(0, 177, 183, 0.7);
   }
+
   70% {
     box-shadow: 0 0 0 20px rgba(0, 177, 183, 0);
   }
+
   100% {
     box-shadow: 0 0 0 0 rgba(0, 177, 183, 0);
   }
@@ -722,6 +725,7 @@
 /* ═══════════════════ RESPONSIVE ═══════════════════ */
 
 @media (max-width: 968px) {
+
   .hero-content,
   .solution-content,
   .box-content {
@@ -819,4 +823,40 @@
   .calc-result-value {
     font-size: 3rem;
   }
+}
+
+/* ═══════════════════ TESTIMONIALS SECTION ═══════════════════ */
+
+.testimonials-section {
+  position: relative;
+  z-index: var(--z-base);
+  padding: var(--space-4xl) var(--space-xl);
+  background: var(--color-paper);
+}
+
+/* ═══════════════════ PRICING SECTION ═══════════════════ */
+
+.pricing-section {
+  position: relative;
+  z-index: var(--z-base);
+  padding: var(--space-4xl) var(--space-xl);
+  background: linear-gradient(180deg, var(--color-base) 0%, var(--color-paper-off) 100%);
+}
+
+/* ═══════════════════ FAQ SECTION ═══════════════════ */
+
+.faq-section {
+  position: relative;
+  z-index: var(--z-base);
+  padding: var(--space-4xl) var(--space-xl);
+  background: var(--color-base);
+}
+
+/* ═══════════════════ NEWSLETTER SECTION ═══════════════════ */
+
+.newsletter-section {
+  position: relative;
+  z-index: var(--z-base);
+  padding: var(--space-4xl) var(--space-xl);
+  background: var(--color-paper-off);
 }
