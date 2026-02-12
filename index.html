@@ -186,7 +186,8 @@
     <div class="nav-container">
       <div class="nav-logo">
         <a href="#hero">
-          <img src="https://i.ibb.co/3y5wkF5w/LOGO-white-transparent-bg.webp" alt="Sparify Logo - Smart Piggybank" loading="eager" width="32" height="32" />
+          <img src="https://i.ibb.co/3y5wkF5w/LOGO-white-transparent-bg.webp" alt="Sparify Logo - Smart Piggybank"
+            loading="eager" width="32" height="32" />
         </a>
       </div>
 
@@ -284,26 +285,26 @@
 
             <!-- Filters for depth -->
             <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur in="SourceAlpha" stdDeviation="8"/>
-              <feOffset dx="0" dy="8" result="offsetblur"/>
+              <feGaussianBlur in="SourceAlpha" stdDeviation="8" />
+              <feOffset dx="0" dy="8" result="offsetblur" />
               <feComponentTransfer>
-                <feFuncA type="linear" slope="0.3"/>
+                <feFuncA type="linear" slope="0.3" />
               </feComponentTransfer>
               <feMerge>
-                <feMergeNode/>
-                <feMergeNode in="SourceGraphic"/>
+                <feMergeNode />
+                <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
 
             <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
-              <feOffset dx="0" dy="4" result="offsetblur"/>
+              <feGaussianBlur in="SourceAlpha" stdDeviation="4" />
+              <feOffset dx="0" dy="4" result="offsetblur" />
               <feComponentTransfer>
-                <feFuncA type="linear" slope="0.2"/>
+                <feFuncA type="linear" slope="0.2" />
               </feComponentTransfer>
               <feMerge>
-                <feMergeNode/>
-                <feMergeNode in="SourceGraphic"/>
+                <feMergeNode />
+                <feMergeNode in="SourceGraphic" />
               </feMerge>
             </filter>
           </defs>
@@ -349,7 +350,8 @@
             <ellipse cx="-20" cy="0" rx="25" ry="20" fill="#ffffff" opacity="0.4" />
 
             <!-- Tail -->
-            <path d="M 95 15 Q 115 5 110 -15" stroke="url(#piggyGradient)" stroke-width="8" fill="none" stroke-linecap="round" />
+            <path d="M 95 15 Q 115 5 110 -15" stroke="url(#piggyGradient)" stroke-width="8" fill="none"
+              stroke-linecap="round" />
 
             <!-- Sensor indicators (glowing) -->
             <circle cx="10" cy="-20" r="6" fill="#00d4da">
@@ -366,13 +368,16 @@
               <animate attributeName="x1" values="270;290;270" dur="3s" repeatCount="indefinite" />
               <animate attributeName="x2" values="380;360;380" dur="3s" repeatCount="indefinite" />
             </line>
-            <line x1="270" y1="250" x2="380" y2="250" stroke="#e77938" stroke-width="2" stroke-dasharray="8,8" opacity="0.4">
+            <line x1="270" y1="250" x2="380" y2="250" stroke="#e77938" stroke-width="2" stroke-dasharray="8,8"
+              opacity="0.4">
               <animate attributeName="stroke-dashoffset" from="0" to="16" dur="1s" repeatCount="indefinite" />
             </line>
 
             <!-- Connection arrows -->
-            <path d="M 375 245 L 380 250 L 375 255" fill="none" stroke="#e77938" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M 275 245 L 270 250 L 275 255" fill="none" stroke="#00b1b7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M 375 245 L 380 250 L 375 255" fill="none" stroke="#e77938" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M 275 245 L 270 250 L 275 255" fill="none" stroke="#00b1b7" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round" />
           </g>
 
           <!-- Modern Smartphone (Right Side) -->
@@ -394,12 +399,14 @@
             <!-- App UI Elements -->
             <!-- Header with logo -->
             <circle cx="0" cy="45" r="15" fill="#00b1b7" opacity="0.9" />
-            <text x="0" y="50" font-family="Montserrat" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">S</text>
+            <text x="0" y="50" font-family="Montserrat" font-size="12" font-weight="700" fill="#ffffff"
+              text-anchor="middle">S</text>
 
             <!-- Balance card -->
             <rect x="-50" y="75" width="100" height="60" rx="12" fill="#00b1b7" opacity="0.15" />
             <rect x="-45" y="80" width="40" height="8" rx="4" fill="#00b1b7" opacity="0.3" />
-            <text x="0" y="110" font-family="Montserrat" font-size="20" font-weight="700" fill="#00b1b7" text-anchor="middle">€ 247</text>
+            <text x="0" y="110" font-family="Montserrat" font-size="20" font-weight="700" fill="#00b1b7"
+              text-anchor="middle">€ 247</text>
 
             <!-- Progress bars (savings goals) -->
             <rect x="-50" y="150" width="100" height="6" rx="3" fill="#e0e0e0" opacity="0.3" />
@@ -441,13 +448,16 @@
 
           <!-- Bottom text with icon -->
           <g transform="translate(300, 460)">
-            <text x="0" y="0" font-family="Montserrat" font-size="22" font-weight="700" fill="#00b1b7" text-anchor="middle">
+            <text x="0" y="0" font-family="Montserrat" font-size="22" font-weight="700" fill="#00b1b7"
+              text-anchor="middle">
               Box + App = Sparify
             </text>
             <circle cx="-100" cy="-4" r="12" fill="#00b1b7" opacity="0.15" />
-            <text x="-100" y="2" font-family="Arial" font-size="18" font-weight="700" fill="#00b1b7" text-anchor="middle">+</text>
+            <text x="-100" y="2" font-family="Arial" font-size="18" font-weight="700" fill="#00b1b7"
+              text-anchor="middle">+</text>
             <circle cx="100" cy="-4" r="12" fill="#00b1b7" opacity="0.15" />
-            <text x="100" y="2" font-family="Arial" font-size="18" font-weight="700" fill="#00b1b7" text-anchor="middle">=</text>
+            <text x="100" y="2" font-family="Arial" font-size="18" font-weight="700" fill="#00b1b7"
+              text-anchor="middle">=</text>
           </g>
         </svg>
       </div>
@@ -688,14 +698,14 @@
                   <stop offset="100%" stop-color="#f4f5f6" />
                 </linearGradient>
                 <filter id="cardShadow">
-                  <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-                  <feOffset dx="0" dy="2" result="offsetblur"/>
+                  <feGaussianBlur in="SourceAlpha" stdDeviation="3" />
+                  <feOffset dx="0" dy="2" result="offsetblur" />
                   <feComponentTransfer>
-                    <feFuncA type="linear" slope="0.15"/>
+                    <feFuncA type="linear" slope="0.15" />
                   </feComponentTransfer>
                   <feMerge>
-                    <feMergeNode/>
-                    <feMergeNode in="SourceGraphic"/>
+                    <feMergeNode />
+                    <feMergeNode in="SourceGraphic" />
                   </feMerge>
                 </filter>
               </defs>
@@ -711,7 +721,8 @@
               <rect x="240" y="28" width="20" height="10" rx="2" fill="#00b1b7" opacity="0.6" />
 
               <!-- App header -->
-              <text x="150" y="65" font-family="Montserrat" font-size="16" font-weight="700" fill="#1a1a1a" text-anchor="middle">Dashboard</text>
+              <text x="150" y="65" font-family="Montserrat" font-size="16" font-weight="700" fill="#1a1a1a"
+                text-anchor="middle">Dashboard</text>
 
               <!-- Main balance card -->
               <g filter="url(#cardShadow)">
@@ -721,19 +732,25 @@
                   <stop offset="100%" stop-color="#00b1b7" />
                 </linearGradient>
 
-                <text x="150" y="115" font-family="Montserrat" font-size="14" fill="#ffffff" opacity="0.9" text-anchor="middle">Aktueller Kontostand</text>
-                <text x="150" y="160" font-family="Montserrat" font-size="42" font-weight="800" fill="#ffffff" text-anchor="middle">€ 247,50</text>
-                <text x="150" y="185" font-family="Montserrat" font-size="12" fill="#ffffff" opacity="0.8" text-anchor="middle">Zuletzt aktualisiert: vor 2 Min</text>
+                <text x="150" y="115" font-family="Montserrat" font-size="14" fill="#ffffff" opacity="0.9"
+                  text-anchor="middle">Aktueller Kontostand</text>
+                <text x="150" y="160" font-family="Montserrat" font-size="42" font-weight="800" fill="#ffffff"
+                  text-anchor="middle">€ 247,50</text>
+                <text x="150" y="185" font-family="Montserrat" font-size="12" fill="#ffffff" opacity="0.8"
+                  text-anchor="middle">Zuletzt aktualisiert: vor 2 Min</text>
 
                 <!-- Sync icon -->
                 <circle cx="250" cy="105" r="8" fill="#ffffff" opacity="0.3" />
-                <path d="M 248 102 A 3 3 0 1 1 252 106" stroke="#ffffff" stroke-width="1.5" fill="none" stroke-linecap="round">
-                  <animateTransform attributeName="transform" type="rotate" from="0 250 105" to="360 250 105" dur="2s" repeatCount="indefinite" />
+                <path d="M 248 102 A 3 3 0 1 1 252 106" stroke="#ffffff" stroke-width="1.5" fill="none"
+                  stroke-linecap="round">
+                  <animateTransform attributeName="transform" type="rotate" from="0 250 105" to="360 250 105" dur="2s"
+                    repeatCount="indefinite" />
                 </path>
               </g>
 
               <!-- Activity chart -->
-              <text x="30" y="250" font-family="Montserrat" font-size="14" font-weight="600" fill="#1a1a1a">Letzte 7 Tage</text>
+              <text x="30" y="250" font-family="Montserrat" font-size="14" font-weight="600" fill="#1a1a1a">Letzte 7
+                Tage</text>
 
               <!-- Chart bars -->
               <g opacity="0.8">
@@ -786,7 +803,8 @@
               <text x="30" y="35" font-family="system-ui" font-size="10" fill="#1a1a1a" opacity="0.6">9:41</text>
 
               <!-- App header -->
-              <text x="150" y="65" font-family="Montserrat" font-size="16" font-weight="700" fill="#1a1a1a" text-anchor="middle">Meine Ziele</text>
+              <text x="150" y="65" font-family="Montserrat" font-size="16" font-weight="700" fill="#1a1a1a"
+                text-anchor="middle">Meine Ziele</text>
 
               <!-- Goal Card 1 - Nintendo Switch -->
               <g filter="url(#cardShadow)">
@@ -794,13 +812,15 @@
                 <circle cx="55" cy="127" r="18" fill="#e77938" opacity="0.15" />
                 <text x="55" y="133" font-family="Arial" font-size="20" text-anchor="middle">🎮</text>
 
-                <text x="85" y="115" font-family="Montserrat" font-size="13" font-weight="600" fill="#1a1a1a">Nintendo Switch</text>
+                <text x="85" y="115" font-family="Montserrat" font-size="13" font-weight="600" fill="#1a1a1a">Nintendo
+                  Switch</text>
                 <text x="85" y="135" font-family="Montserrat" font-size="11" fill="#8a9097">€ 210 / € 300</text>
 
                 <!-- Progress bar -->
                 <rect x="85" y="145" width="175" height="8" rx="4" fill="#f4f5f6" />
                 <rect x="85" y="145" width="122" height="8" rx="4" fill="#e77938" />
-                <text x="260" y="152" font-family="Montserrat" font-size="10" font-weight="600" fill="#e77938" text-anchor="end">70%</text>
+                <text x="260" y="152" font-family="Montserrat" font-size="10" font-weight="600" fill="#e77938"
+                  text-anchor="end">70%</text>
               </g>
 
               <!-- Goal Card 2 - Fahrrad -->
@@ -809,13 +829,15 @@
                 <circle cx="55" cy="227" r="18" fill="#00b1b7" opacity="0.15" />
                 <text x="55" y="233" font-family="Arial" font-size="20" text-anchor="middle">🚲</text>
 
-                <text x="85" y="215" font-family="Montserrat" font-size="13" font-weight="600" fill="#1a1a1a">Neues Fahrrad</text>
+                <text x="85" y="215" font-family="Montserrat" font-size="13" font-weight="600" fill="#1a1a1a">Neues
+                  Fahrrad</text>
                 <text x="85" y="235" font-family="Montserrat" font-size="11" fill="#8a9097">€ 95 / € 450</text>
 
                 <!-- Progress bar -->
                 <rect x="85" y="245" width="175" height="8" rx="4" fill="#f4f5f6" />
                 <rect x="85" y="245" width="37" height="8" rx="4" fill="#00b1b7" />
-                <text x="260" y="252" font-family="Montserrat" font-size="10" font-weight="600" fill="#00b1b7" text-anchor="end">21%</text>
+                <text x="260" y="252" font-family="Montserrat" font-size="10" font-weight="600" fill="#00b1b7"
+                  text-anchor="end">21%</text>
               </g>
 
               <!-- Goal Card 3 - Konzert -->
@@ -824,13 +846,15 @@
                 <circle cx="55" cy="327" r="18" fill="#f5db6f" opacity="0.2" />
                 <text x="55" y="333" font-family="Arial" font-size="20" text-anchor="middle">🎤</text>
 
-                <text x="85" y="315" font-family="Montserrat" font-size="13" font-weight="600" fill="#1a1a1a">Konzertticket</text>
+                <text x="85" y="315" font-family="Montserrat" font-size="13" font-weight="600"
+                  fill="#1a1a1a">Konzertticket</text>
                 <text x="85" y="335" font-family="Montserrat" font-size="11" fill="#8a9097">€ 75 / € 80</text>
 
                 <!-- Progress bar -->
                 <rect x="85" y="345" width="175" height="8" rx="4" fill="#f4f5f6" />
                 <rect x="85" y="345" width="164" height="8" rx="4" fill="#f5db6f" />
-                <text x="260" y="352" font-family="Montserrat" font-size="10" font-weight="600" fill="#e8c94e" text-anchor="end">94%</text>
+                <text x="260" y="352" font-family="Montserrat" font-size="10" font-weight="600" fill="#e8c94e"
+                  text-anchor="end">94%</text>
               </g>
             </svg>
           </div>
@@ -862,18 +886,22 @@
               <text x="30" y="35" font-family="system-ui" font-size="10" fill="#1a1a1a" opacity="0.6">9:41</text>
 
               <!-- App header -->
-              <text x="150" y="65" font-family="Montserrat" font-size="16" font-weight="700" fill="#1a1a1a" text-anchor="middle">Statistiken</text>
+              <text x="150" y="65" font-family="Montserrat" font-size="16" font-weight="700" fill="#1a1a1a"
+                text-anchor="middle">Statistiken</text>
 
               <!-- Time period selector -->
               <g>
                 <rect x="40" y="75" width="60" height="24" rx="12" fill="#f4f5f6" />
-                <text x="70" y="91" font-family="Montserrat" font-size="11" fill="#8a9097" text-anchor="middle">Woche</text>
+                <text x="70" y="91" font-family="Montserrat" font-size="11" fill="#8a9097"
+                  text-anchor="middle">Woche</text>
 
                 <rect x="105" y="75" width="60" height="24" rx="12" fill="#00b1b7" />
-                <text x="135" y="91" font-family="Montserrat" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">Monat</text>
+                <text x="135" y="91" font-family="Montserrat" font-size="11" font-weight="600" fill="#ffffff"
+                  text-anchor="middle">Monat</text>
 
                 <rect x="170" y="75" width="60" height="24" rx="12" fill="#f4f5f6" />
-                <text x="200" y="91" font-family="Montserrat" font-size="11" fill="#8a9097" text-anchor="middle">Jahr</text>
+                <text x="200" y="91" font-family="Montserrat" font-size="11" fill="#8a9097"
+                  text-anchor="middle">Jahr</text>
               </g>
 
               <!-- Pie chart -->
@@ -889,8 +917,10 @@
                 <circle cx="0" cy="0" r="45" fill="#ffffff" />
 
                 <!-- Center text -->
-                <text x="0" y="-5" font-family="Montserrat" font-size="11" fill="#8a9097" text-anchor="middle">Gesamt</text>
-                <text x="0" y="12" font-family="Montserrat" font-size="18" font-weight="700" fill="#1a1a1a" text-anchor="middle">€ 247</text>
+                <text x="0" y="-5" font-family="Montserrat" font-size="11" fill="#8a9097"
+                  text-anchor="middle">Gesamt</text>
+                <text x="0" y="12" font-family="Montserrat" font-size="18" font-weight="700" fill="#1a1a1a"
+                  text-anchor="middle">€ 247</text>
               </g>
 
               <!-- Legend -->
@@ -963,14 +993,14 @@
 
               <!-- Shadow filter -->
               <filter id="boxShadow">
-                <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
-                <feOffset dx="0" dy="15" result="offsetblur"/>
+                <feGaussianBlur in="SourceAlpha" stdDeviation="10" />
+                <feOffset dx="0" dy="15" result="offsetblur" />
                 <feComponentTransfer>
-                  <feFuncA type="linear" slope="0.3"/>
+                  <feFuncA type="linear" slope="0.3" />
                 </feComponentTransfer>
                 <feMerge>
-                  <feMergeNode/>
-                  <feMergeNode in="SourceGraphic"/>
+                  <feMergeNode />
+                  <feMergeNode in="SourceGraphic" />
                 </feMerge>
               </filter>
             </defs>
@@ -1048,17 +1078,10 @@
               </g>
 
               <!-- Tail with curl -->
-              <path d="M 110 10 Q 135 0 135 -20 Q 135 -35 125 -40"
-                    stroke="url(#boxTopGrad)"
-                    stroke-width="10"
-                    fill="none"
-                    stroke-linecap="round" />
-              <path d="M 110 10 Q 135 0 135 -20"
-                    stroke="#ffffff"
-                    stroke-width="3"
-                    fill="none"
-                    stroke-linecap="round"
-                    opacity="0.3" />
+              <path d="M 110 10 Q 135 0 135 -20 Q 135 -35 125 -40" stroke="url(#boxTopGrad)" stroke-width="10"
+                fill="none" stroke-linecap="round" />
+              <path d="M 110 10 Q 135 0 135 -20" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round"
+                opacity="0.3" />
 
               <!-- Smart Sensors with glow -->
               <g>
@@ -1088,7 +1111,8 @@
                     <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" repeatCount="indefinite" />
                   </rect>
                   <rect x="23" y="-38" width="2" height="2" rx="1" fill="#00d4da">
-                    <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" begin="0.3s" repeatCount="indefinite" />
+                    <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" begin="0.3s"
+                      repeatCount="indefinite" />
                   </rect>
                 </g>
               </g>
@@ -1099,9 +1123,12 @@
 
             <!-- Product info badge -->
             <g transform="translate(400, 100)">
-              <rect x="-50" y="0" width="100" height="60" rx="12" fill="#ffffff" filter="url(#boxShadow)" opacity="0.95" />
-              <text x="0" y="25" font-family="Montserrat" font-size="11" font-weight="600" fill="#00b1b7" text-anchor="middle">SMART</text>
-              <text x="0" y="42" font-family="Montserrat" font-size="14" font-weight="800" fill="#1a1a1a" text-anchor="middle">SPARBOX</text>
+              <rect x="-50" y="0" width="100" height="60" rx="12" fill="#ffffff" filter="url(#boxShadow)"
+                opacity="0.95" />
+              <text x="0" y="25" font-family="Montserrat" font-size="11" font-weight="600" fill="#00b1b7"
+                text-anchor="middle">SMART</text>
+              <text x="0" y="42" font-family="Montserrat" font-size="14" font-weight="800" fill="#1a1a1a"
+                text-anchor="middle">SPARBOX</text>
               <circle cx="-30" cy="15" r="3" fill="#00d4da">
                 <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" />
               </circle>
@@ -1472,7 +1499,8 @@
             </div>
             <div class="insta-card-image">
               <!-- Instagram post image mockup -->
-              <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: 100%;">
+              <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; height: 100%;">
                 <defs>
                   <linearGradient id="instaPostGrad" x1="0" y1="0" x2="1" y2="1">
                     <stop offset="0%" stop-color="#00d4da" />
@@ -1498,18 +1526,22 @@
                   <!-- Coin icon -->
                   <g transform="translate(30, -20)">
                     <circle cx="0" cy="0" r="15" fill="#f5db6f" opacity="0.9" />
-                    <text x="0" y="5" font-family="Arial" font-size="16" font-weight="bold" fill="#1a1a1a" text-anchor="middle">€</text>
+                    <text x="0" y="5" font-family="Arial" font-size="16" font-weight="bold" fill="#1a1a1a"
+                      text-anchor="middle">€</text>
                   </g>
                 </g>
 
                 <!-- Logo watermark -->
-                <text x="140" y="250" font-family="Montserrat" font-size="20" font-weight="800" fill="#ffffff" text-anchor="middle" opacity="0.3">SPARIFY</text>
+                <text x="140" y="250" font-family="Montserrat" font-size="20" font-weight="800" fill="#ffffff"
+                  text-anchor="middle" opacity="0.3">SPARIFY</text>
               </svg>
             </div>
             <div class="insta-card-footer">
               <div class="insta-likes">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="#1a1a1a" style="margin-right: 6px; vertical-align: middle;">
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#1a1a1a"
+                  style="margin-right: 6px; vertical-align: middle;">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                 </svg>
                 <span style="font-weight: 600; font-size: 12px; color: #1a1a1a;">2.847 Likes</span>
               </div>
@@ -1529,7 +1561,8 @@
     <div class="footer-container">
       <!-- Brand -->
       <div class="footer-brand">
-        <img src="https://i.ibb.co/3y5wkF5w/LOGO-white-transparent-bg.webp" alt="Sparify - Die Zukunft des Sparens" class="footer-logo" loading="lazy" width="40" height="40" />
+        <img src="https://i.ibb.co/3y5wkF5w/LOGO-white-transparent-bg.webp" alt="Sparify - Die Zukunft des Sparens"
+          class="footer-logo" loading="lazy" width="40" height="40" />
         <p class="footer-tagline">Die Zukunft des Sparens.</p>
         <div class="footer-social">
           <a href="mailto:sparify.at@gmail.com" aria-label="Email">
@@ -1592,6 +1625,10 @@
   <!-- Supabase Client Library (CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+  <!-- Config (erstelle diese Datei!) -->
+  <script type="module" src="js/config.js"></script>
+
+  <!-- Newsletter Script -->
   <!-- Newsletter with Supabase (ES6 Module) -->
   <script type="module" src="js/newsletter.js"></script>
 
