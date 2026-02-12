@@ -1,4 +1,17 @@
-// ═══════════════════ NEWSLETTER FORM ═══════════════════
+// ═══════════════════ NEWSLETTER FORM WITH SUPABASE ═══════════════════
+import SUPABASE_CONFIG from './config.js';
+
+// Initialize Supabase client (only if config is properly set)
+let supabase = null;
+
+if (typeof window.supabase !== 'undefined' &&
+    SUPABASE_CONFIG.url !== 'YOUR_SUPABASE_PROJECT_URL') {
+  supabase = window.supabase.createClient(
+    SUPABASE_CONFIG.url,
+    SUPABASE_CONFIG.anonKey
+  );
+}
+
 (function () {
     const form = document.getElementById('newsletter-form');
     const input = document.getElementById('newsletter-email');
@@ -26,31 +39,91 @@
             return;
         }
 
-        // TODO: Replace with actual newsletter service integration
-        // For now, just show success message
-        try {
-            // Simulate API call
-            await new Promise(resolve => setTimeout(resolve, 500));
+        // Disable button during submission
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton ? submitButton.textContent : '';
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = 'Wird angemeldet...';
+        }
 
-            // Show success message
-            if (successMsg) {
-                successMsg.textContent = 'Vielen Dank! Sie wurden erfolgreich angemeldet.';
-                successMsg.classList.add('show');
+        try {
+            if (supabase) {
+                // Use Supabase to save subscriber
+                const { data, error } = await supabase
+                    .from('subscribers')
+                    .insert([
+                        {
+                            email: email,
+                            source: 'website',
+                            metadata: {
+                                userAgent: navigator.userAgent,
+                                timestamp: new Date().toISOString()
+                            }
+                        }
+                    ])
+                    .select();
+
+                if (error) {
+                    // Handle duplicate email error gracefully
+                    if (error.code === '23505') { // Unique constraint violation
+                        if (errorMsg) {
+                            errorMsg.textContent = 'Diese E-Mail-Adresse ist bereits registriert.';
+                            errorMsg.classList.add('show');
+                        }
+                    } else {
+                        throw error;
+                    }
+                } else {
+                    // Success!
+                    if (successMsg) {
+                        successMsg.textContent = 'Vielen Dank! Sie wurden erfolgreich angemeldet.';
+                        successMsg.classList.add('show');
+                    }
+
+                    // Clear input
+                    if (input) input.value = '';
+
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        if (successMsg) successMsg.classList.remove('show');
+                    }, 5000);
+                }
+            } else {
+                // Fallback: Simulate success if Supabase is not configured
+                console.warn('Supabase is not configured. Please see SETUP.md for instructions.');
+
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 500));
+
+                // Show success message
+                if (successMsg) {
+                    successMsg.textContent = 'Vielen Dank! Sie wurden erfolgreich angemeldet. (Demo-Modus - siehe SETUP.md)';
+                    successMsg.classList.add('show');
+                }
+
+                // Clear input
+                if (input) input.value = '';
+
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    if (successMsg) successMsg.classList.remove('show');
+                }, 5000);
             }
 
-            // Clear input
-            if (input) input.value = '';
-
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                if (successMsg) successMsg.classList.remove('show');
-            }, 5000);
-
         } catch (error) {
+            console.error('Newsletter subscription error:', error);
+
             // Show error message
             if (errorMsg) {
                 errorMsg.textContent = 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.';
                 errorMsg.classList.add('show');
+            }
+        } finally {
+            // Re-enable button
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
             }
         }
     });
@@ -72,35 +145,3 @@
         });
     }
 })();
-
-// ═══════════════════ NEWSLETTER SERVICE INTEGRATION GUIDE ═══════════════════
-/*
-  To integrate with a newsletter service (Mailchimp, ConvertKit, etc.):
-
-  1. Mailchimp Integration:
-     - Replace the try block with:
-       const response = await fetch('YOUR_MAILCHIMP_ENDPOINT', {
-         method: 'POST',
-         headers: { 'Content-Type': 'application/json' },
-         body: JSON.stringify({ email })
-       });
-
-  2. ConvertKit Integration:
-     - Use ConvertKit's API:
-       const response = await fetch('https://api.convertkit.com/v3/forms/YOUR_FORM_ID/subscribe', {
-         method: 'POST',
-         headers: { 'Content-Type': 'application/json' },
-         body: JSON.stringify({
-           api_key: 'YOUR_API_KEY',
-           email: email
-         })
-       });
-
-  3. Custom Backend:
-     - Send to your own server endpoint:
-       const response = await fetch('/api/newsletter/subscribe', {
-         method: 'POST',
-         headers: { 'Content-Type': 'application/json' },
-         body: JSON.stringify({ email })
-       });
-*/

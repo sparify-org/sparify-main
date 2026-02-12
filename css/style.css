@@ -139,7 +139,7 @@ body::after {
   }
 }
 
-/* Sparkles layer - NO BLUR for maximum performance */
+/* Sparkles layer with parallax - NO BLUR for maximum performance */
 .bg-sparkles {
   position: fixed;
   inset: 0;
@@ -154,6 +154,12 @@ body::after {
   background-size: 100% 100%;
   opacity: 0.15;
   animation: sparkleShift 40s linear infinite;
+  /* Subtle parallax effect based on mouse position */
+  transform: translate(
+    calc(var(--mx) * -5px),
+    calc(var(--my) * -5px)
+  );
+  transition: transform 0.3s ease-out;
 }
 
 @keyframes sparkleShift {

@@ -1,0 +1,46 @@
+# ═══════════════════════════════════════════════
+# SPARIFY .GITIGNORE
+# ═══════════════════════════════════════════════
+
+# Configuration files with API keys
+js/config.js
+
+# Environment variables
+.env
+.env.local
+.env.production
+.env.development
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Dependencies
+node_modules/
+
+# Build outputs (if using a build tool in the future)
+dist/
+build/
+out/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Backup files
+*.backup
+*.bak
