@@ -86,8 +86,7 @@ function initSupabase() {
                 referrer: document.referrer || 'direct'
               }
             }
-          ])
-          .select();
+          ]);
 
         console.log('Supabase response:', { data, error });
 
