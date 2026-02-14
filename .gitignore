@@ -3,7 +3,7 @@
 # ═══════════════════════════════════════════════
 
 # Configuration files with API keys
-js/config.js
+# js/config.js (Currently enabled for direct deployment)
 
 # Environment variables
 .env
