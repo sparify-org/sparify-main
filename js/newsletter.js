@@ -1,5 +1,10 @@
 // ═══════════════════ NEWSLETTER FORM WITH SUPABASE ═══════════════════
-import SUPABASE_CONFIG from './config.js';
+
+// Fallback configuration if js/config.js fails to load or for direct operation
+const SUPABASE_CONFIG = {
+  url: 'https://bejlqwebcujfklavoecm.supabase.co',
+  anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJlamxxd2ViY3VqZmtsYXZvZWNtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0NzQwMDgsImV4cCI6MjA4MTA1MDAwOH0.KFJjfAOar6PQxw72ukf_pKHNjfcvl6Bt4Gj683fTrCY'
+};
 
 // Initialize Supabase client
 let supabaseClient = null;
