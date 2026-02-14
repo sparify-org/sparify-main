@@ -1,6 +1,6 @@
 // ═══════════════════ NEWSLETTER FORM WITH SUPABASE ═══════════════════
 
-// Fallback configuration if js/config.js fails to load or for direct operation
+// Fallback configuration if js/config.js fails to load
 const SUPABASE_CONFIG = {
   url: 'https://bejlqwebcujfklavoecm.supabase.co',
   anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJlamxxd2ViY3VqZmtsYXZvZWNtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0NzQwMDgsImV4cCI6MjA4MTA1MDAwOH0.KFJjfAOar6PQxw72ukf_pKHNjfcvl6Bt4Gj683fTrCY'
@@ -9,11 +9,16 @@ const SUPABASE_CONFIG = {
 // Initialize Supabase client
 let supabaseClient = null;
 
-// Wait for DOM and Supabase library to be ready
 function initSupabase() {
-  if (typeof window.supabase !== 'undefined' && SUPABASE_CONFIG.url && SUPABASE_CONFIG.anonKey) {
+  // Check if supabase is already initialized
+  if (supabaseClient) return true;
+
+  // Try to use window.supabase or the one from SUPABASE_CONFIG
+  const supabaseLib = window.supabase;
+
+  if (typeof supabaseLib !== 'undefined' && SUPABASE_CONFIG.url && SUPABASE_CONFIG.anonKey) {
     try {
-      supabaseClient = window.supabase.createClient(
+      supabaseClient = supabaseLib.createClient(
         SUPABASE_CONFIG.url,
         SUPABASE_CONFIG.anonKey
       );
@@ -35,14 +40,15 @@ function initSupabase() {
 
   if (!form) return;
 
-  // Initialize Supabase when form is found
+  // Initialize Supabase as soon as possible
   initSupabase();
 
   form.addEventListener('submit', async (e) => {
+    // ALWAYS prevent default first
     e.preventDefault();
     console.log('Newsletter form submission started');
 
-    // Try to initialize Supabase if not already done
+    // Ensure Supabase is initialized
     if (!supabaseClient) {
       const initialized = initSupabase();
       if (!initialized) {
@@ -63,6 +69,7 @@ function initSupabase() {
         errorMsg.textContent = 'Bitte geben Sie eine gültige E-Mail-Adresse ein.';
         errorMsg.classList.add('show');
       }
+      if (input) input.classList.add('error');
       return;
     }
 
@@ -93,8 +100,6 @@ function initSupabase() {
             }
           ]);
 
-        console.log('Supabase response:', { data, error });
-
         if (error) {
           // Handle duplicate email error gracefully
           if (error.code === '23505') {
@@ -108,19 +113,21 @@ function initSupabase() {
           }
         } else {
           // Success!
-          console.log('Subscription successful:', data);
+          console.log('Subscription successful');
           if (successMsg) {
             successMsg.textContent = '🎉 Willkommen in der Sparify-Community!';
             successMsg.classList.add('show');
 
             // Add a small pulse animation to the form
-            form.style.animation = 'none';
-            form.offsetHeight; // trigger reflow
-            form.style.animation = 'pulse-soft 1s ease-in-out';
+            form.classList.add('form-success-pulse');
+            setTimeout(() => form.classList.remove('form-success-pulse'), 1000);
           }
 
           // Clear input
-          if (input) input.value = '';
+          if (input) {
+            input.value = '';
+            input.classList.remove('error');
+          }
 
           // Hide success message after 8 seconds
           setTimeout(() => {
@@ -158,15 +165,18 @@ function initSupabase() {
     input.addEventListener('blur', () => {
       const email = input.value.trim();
       if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        input.style.borderColor = 'rgb(239, 68, 68)';
+        input.classList.add('error');
       } else {
-        input.style.borderColor = '';
+        input.classList.remove('error');
       }
     });
 
     input.addEventListener('input', () => {
-      input.style.borderColor = '';
+      if (input.classList.contains('error')) {
+        input.classList.remove('error');
+      }
       if (errorMsg) errorMsg.classList.remove('show');
     });
   }
 })();
+

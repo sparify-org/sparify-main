@@ -799,7 +799,7 @@
 
 /* Ensure logo remains visible even if it's white-on-white */
 :root[data-theme="dark"] .footer-logo {
-  filter: drop-shadow(0 0 2px rgba(0, 177, 183, 0.3));
+  filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(0, 177, 183, 0.4));
 }
 
 :root[data-theme="dark"] .footer-tagline,
@@ -809,6 +809,10 @@
 }
 
 :root[data-theme="dark"] .footer-col h4 {
+  color: var(--color-ink);
+}
+
+:root[data-theme="dark"] .lead-text {
   color: var(--color-ink);
 }
 
@@ -921,11 +925,11 @@
   /* Prevent nav-actions from overlapping logo/toggle on small screens */
   @media (max-width: 480px) {
     .nav-actions {
-      display: none;
+      display: flex;
     }
 
     .nav-logo img {
-      height: 36px;
+      height: 32px;
     }
   }
 

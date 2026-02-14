@@ -1,31 +1,38 @@
-# Changes to Fix - Sparify Website Audit
+# Audit-Ergebnisse & Fehlerbehebung (Sparify Website)
 
-Hier sind die identifizierten Probleme und die geplanten Korrekturen für die Sparify-Website:
+Ich habe die Website auf dem PC und in der mobilen Ansicht (Handy) sowie im Light- und Dark-Mode getestet. Hier sind die identifizierten Probleme:
 
 ## 🔴 Kritische Fehler (Funktionalität)
 
-*   **Newsletter Anmeldung funktioniert nicht:**
-    *   **Problem:** Die E-Mail-Adressen werden nicht in die Supabase-Datenbank geschrieben.
-    *   **Ursache:** Beim Testen via `file://` blockiert CORS das Laden der JavaScript-Module (`newsletter.js`, `config.js`). Zudem scheint das Formular bei einem Fehler auf ein Standard-GET-Verhalten zurückzufallen.
-    *   **Lösung:** Sicherstellen, dass die Scripte korrekt geladen werden. Fehlerbehandlung im `newsletter.js` verbessern, um das Standard-Absenden des Formulars (`e.preventDefault()`) unter allen Umständen zu verhindern.
+*   **Newsletter-Anmeldung (Supabase):**
+    *   **Status:** Schreibt aktuell nichts in die Datenbank beim Testen.
+    *   **Ursachen:**
+        1.  **CORS/Module Issue:** Da `newsletter.js` als Modul geladen wird, blockieren viele Browser das Laden via `file://` (lokal).
+        2.  **Initialisierungs-Timing:** Die Supabase-Initialisierung in `newsletter.js` läuft sofort beim Laden, evtl. bevor das globale `window.supabase`-Objekt der Library vollständig verfügbar ist.
+    *   **Lösung:** Umstellung auf reguläre Scripte oder verbesserte Initialisierungs-Logik mit Check auf Verfügbarkeit.
 
 ## 🟠 Visuelle Fehler & UI/UX
 
-*   **Textfehler in Buttons:**
-    *   Sowohl der Hero-Button als auch der Newsletter-Button zeigen ein störendes `/>` am Ende des Textes (z.B. "Jetzt starten />").
-*   **Mobile Header Design:**
-    *   Das Hamburger-Menü klebt in der Mitte des Headers, anstatt sauber rechts oder links ausgerichtet zu sein.
-*   **Lesbarkeit im Dark Mode:**
-    *   Im Dark-Mode gibt es Abschnitte (z.B. "Die Lösung"), in denen dunkler Text auf dunklem Hintergrund steht. Der Kontrast muss erhöht werden.
-*   **Fehlende Assets:**
-    *   Die Datei `assets/images/logo_white.webp` wird vom Browser gesucht, ist aber nicht vorhanden (404).
+*   **Dangling HTML Syntax (`/>` Bug):**
+    *   **Problem:** Es tauchen störende `/>` Symbole auf oder Textabschnitte wirken verschoben.
+    *   **Ursache:** Im Abschnitt "Instagram Promo" fehlt ein öffnendes `<svg>`-Tag, aber es gibt ein schließendes `</svg>`. Dies verwirrt den Browser und führt zu Render-Fehlern.
+*   **Mobile Header (Handy-Ansicht):**
+    *   **Problem:** Der Theme-Toggle (Sonne/Mond) wird auf kleinen Bildschirmen (< 480px) komplett ausgeblendet.
+    *   **Problem:** Das Hamburger-Menü ist nicht sauber ausgerichtet.
+    *   **Lösung:** CSS-Media-Queries anpassen, um den Toggle auch mobil anzuzeigen und die Abstände zu optimieren.
+*   **Lesbarkeit & Kontrast (Dark Mode):**
+    *   **Problem:** Im "Lösung" Abschnitt ist der Text teilweise schwer lesbar auf dem dunklen Hintergrund.
+    *   **Problem:** Das Footer-Logo ist im Dark Mode fast unsichtbar, da es dunkel auf dunkel steht.
+    *   **Lösung:** Anpassung der CSS-Variablen für den Dark Mode und Hinzufügen eines Filters/Logoswitchers.
 *   **Mobile Sticky Button:**
-    *   Der "JETZT STARTEN" Button am unteren Bildschirmrand überlappt auf manchen Mobilgeräten mit anderen Elementen oder wirkt deplatziert.
+    *   **Problem:** Der "Jetzt starten" Button am unteren Rand überlappt teilweise Inhalte oder wirkt unproportional.
 
-## 🟡 Sonstiges
+## 🟡 Sonstiges & Assets
 
-*   **Inkonsistente Theme-Toggle Animation:**
-    *   Der Wechsel zwischen Light und Dark Mode wirkt auf Mobilgeräten manchmal abgehakt oder reagiert verzögert.
+*   **Fehlende Bilddatei:**
+    *   Der Browser meldet einen 404-Fehler für `assets/images/logo_white.webp`.
+*   **Konsistenz:**
+    *   Harte Farbcodes in JavaScript (`newsletter.js`) anstatt CSS-Variablen.
 
 ---
-Bitte reviewe diese Punkte. Sobald du grünes Licht gibst, korrigiere ich diese Fehler.
+**Nächste Schritte:** Sobald dieses Dokument reviewt wurde, erstelle ich einen Implementierungsplan.
