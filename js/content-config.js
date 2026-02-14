@@ -7,15 +7,15 @@
 window.ContentConfig = {
     images: {
         // Das Logo im Footer
-        footerLogo: 'https://bejlqwebcujfklavoecm.supabase.co/storage/v1/object/public/Logo/SparifyLogo.png',
+        footerLogo: 'assets/images/sparify_logo_external.png',
 
         // Das Bild im Instagram-Post Mockup
         // Du kannst hier einen Pfad zu einem lokalen Bild (z.B. 'assets/images/insta-post.jpg') 
         // oder eine URL angeben.
-        instagramPost: 'Sparify.png',
+        instagramPost: 'assets/images/Sparify.png',
 
         // Profilbild für den Instagram Post
-        instagramProfile: 'SparifyLogoBlau.png'
+        instagramProfile: 'assets/images/SparifyLogoBlau.png'
     },
 
     // Hier könnten später auch Texte stehen

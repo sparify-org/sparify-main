@@ -41,8 +41,8 @@
     rel="stylesheet" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="https://i.ibb.co/m568zKGM/LOGO-white-transparent-bg.png" />
-  <link rel="apple-touch-icon" href="https://i.ibb.co/m568zKGM/LOGO-white-transparent-bg.png" />
+  <link rel="icon" type="image/png" href="assets/images/logo_white.webp" />
+  <link rel="apple-touch-icon" href="assets/images/logo_white.webp" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/variables.css" />
@@ -78,7 +78,7 @@
         "@type": "Organization",
         "name": "Sparify",
         "url": "https://sparify.org",
-        "logo": "https://i.ibb.co/3y5wkF5w/LOGO-white-transparent-bg.webp",
+        "logo": "assets/images/logo_white.webp",
         "description": "Die Zukunft des Sparens. Wir machen Sparen sichtbar und erlebbar.",
         "contactPoint": {
           "@type": "ContactPoint",
@@ -186,8 +186,7 @@
     <div class="nav-container">
       <div class="nav-logo">
         <a href="#hero">
-          <img src="https://i.ibb.co/3y5wkF5w/LOGO-white-transparent-bg.webp" alt="Sparify Logo - Smart Piggybank"
-            loading="eager" />
+          <img src="assets/images/SparifyLogo.png" alt="Sparify Logo - Smart Piggybank" loading="eager" />
         </a>
       </div>
 
@@ -228,7 +227,7 @@
           </svg>
         </button>
 
-        <a href="https://app.sparify.org" target="_blank" class="nav-cta">Starten</a>
+        <a href="#newsletter" class="nav-cta">Starten</a>
       </div>
     </div>
   </nav>
@@ -246,7 +245,7 @@
           Ohne Bankkonto, mit 100% Spaß.
         </p>
         <div class="hero-cta-group">
-          <a href="https://app.sparify.org" target="_blank" class="btn-primary">Jetzt starten</a>
+          <a href="#newsletter" class="btn-primary">Jetzt starten</a>
           <a href="#problem" class="btn-secondary">Mehr erfahren</a>
         </div>
       </div>
@@ -571,7 +570,7 @@
   </section>
 
   <!-- ═══════════════════ TESTIMONIALS SECTION ═══════════════════ -->
-  <section class="testimonials-section" id="testimonials" style="display: none;">
+  <section class="testimonials-section" id="testimonials">
     <div class="section-container">
       <div class="section-header">
         <span class="section-label">Kundenstimmen</span>
@@ -960,6 +959,41 @@
     </div>
   </section>
 
+  <!-- ═══════════════════ SAVINGS CALCULATOR SECTION ═══════════════════ -->
+  <section class="calculator-section" id="calculator">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label">Spar-Potential</span>
+        <h2 class="section-title">Wie viel kannst du sparen?</h2>
+        <p class="section-subtitle">
+          Nutze unseren Rechner, um zu sehen, wie kleine Beträge über die Zeit zu großen Träumen werden.
+        </p>
+      </div>
+
+      <div class="calculator-container reveal">
+        <div class="calc-input-group">
+          <label for="monthly-money">Monatlicher Sparbetrag: <span id="monthly-value">50</span>€</label>
+          <input type="range" id="monthly-money" min="10" max="500" step="10" value="50" class="calc-slider">
+          <div class="slider-labels">
+            <span>10€</span>
+            <span>500€</span>
+          </div>
+        </div>
+
+        <div class="calc-result-group">
+          <div class="result-card">
+            <span class="result-label">Dein Erspartes nach 1 Jahr*</span>
+            <div class="result-value">€ <span id="yearly-savings">120</span></div>
+            <div class="savings-progress-bar">
+              <div id="savings-bar-fill" class="savings-bar-fill"></div>
+            </div>
+            <p class="result-disclaimer">*Basierend auf einer Sparquote von 20% deiner Einwürfe.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════════════ SPARBOX SHOWCASE ═══════════════════ -->
   <section class="box-showcase" id="box">
     <div class="section-container">
@@ -1205,7 +1239,7 @@
             <li>Statistiken & Analysen</li>
             <li>Finanzbildung</li>
           </ul>
-          <a href="https://app.sparify.org" target="_blank" class="btn-secondary">App herunterladen</a>
+          <a href="#newsletter" class="btn-secondary">App herunterladen</a>
         </div>
 
         <!-- Box + App Bundle -->
@@ -1454,6 +1488,10 @@
     <div class="section-container">
       <div class="newsletter-container reveal">
         <h2 class="newsletter-title">Bleib auf dem Laufenden!</h2>
+        <div class="waitlist-counter">
+          <span class="pulse-dot"></span>
+          <span>Schließe dich über <span class="counter-number">542</span> Sparern auf der Warteliste an.</span>
+        </div>
         <p class="newsletter-description">
           Trage dich in unsere Warteliste ein und erhalte exklusive Updates, Early-Bird-Rabatte und Finanz-Tipps.
         </p>
@@ -1559,9 +1597,8 @@
     <div class="footer-container">
       <!-- Brand -->
       <div class="footer-brand">
-        <img id="footer-logo-img"
-          src="https://bejlqwebcujfklavoecm.supabase.co/storage/v1/object/public/Logo/SparifyLogo.png"
-          alt="Sparify - Die Zukunft des Sparens" class="footer-logo" loading="lazy" />
+        <img id="footer-logo-img" src="assets/images/SparifyLogo.png" alt="Sparify - Die Zukunft des Sparens"
+          class="footer-logo" loading="lazy" />
         <p class="footer-tagline">Die Zukunft des Sparens.</p>
         <div class="footer-social">
           <a href="mailto:sparify.at@gmail.com" aria-label="Email">
@@ -1597,7 +1634,7 @@
         <ul>
           <li><a href="#team">Team</a></li>
           <li><a href="mailto:sparify.at@gmail.com">Kontakt</a></li>
-          <li><a href="https://app.sparify.org" target="_blank">App öffnen</a></li>
+          <li><a href="#newsletter">App öffnen</a></li>
         </ul>
       </div>
 
@@ -1616,21 +1653,21 @@
     </div>
   </footer>
 
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-mobile-cta">
+    <a href="#newsletter" class="btn-primary">Jetzt starten</a>
+  </div>
+
   <!-- Scripts -->
   <script src="js/script.js"></script>
   <script src="js/mobile-menu.js"></script>
   <script src="js/faq.js"></script>
 
-  <!-- Supabase Client Library (CDN) -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-  <!-- Newsletter with Supabase -->
-  <script src="js/newsletter.js"></script>
-
-  <script src="js/content-config.js"></script>
+  <!-- Supabase Client Library -->
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script type="module" src="js/newsletter.js"></script>
+  <script src="js/calculator.js"></script>
   <script src="js/content-loader.js"></script>
 </body>
-
-</html>
 
 </html>

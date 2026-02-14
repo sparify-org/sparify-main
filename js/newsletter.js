@@ -1,9 +1,5 @@
 // ═══════════════════ NEWSLETTER FORM WITH SUPABASE ═══════════════════
-// Supabase Configuration - Direkt eingebettet für bessere Kompatibilität
-const SUPABASE_CONFIG = {
-  url: 'https://bejlqwebcujfklavoecm.supabase.co',
-  anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJlamxxd2ViY3VqZmtsYXZvZWNtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU0NzQwMDgsImV4cCI6MjA4MTA1MDAwOH0.KFJjfAOar6PQxw72ukf_pKHNjfcvl6Bt4Gj683fTrCY'
-};
+import SUPABASE_CONFIG from './config.js';
 
 // Initialize Supabase client
 let supabaseClient = null;
@@ -105,17 +101,22 @@ function initSupabase() {
           // Success!
           console.log('Subscription successful:', data);
           if (successMsg) {
-            successMsg.textContent = 'Vielen Dank! Sie wurden erfolgreich angemeldet.';
+            successMsg.textContent = '🎉 Willkommen in der Sparify-Community!';
             successMsg.classList.add('show');
+
+            // Add a small pulse animation to the form
+            form.style.animation = 'none';
+            form.offsetHeight; // trigger reflow
+            form.style.animation = 'pulse-soft 1s ease-in-out';
           }
 
           // Clear input
           if (input) input.value = '';
 
-          // Hide success message after 5 seconds
+          // Hide success message after 8 seconds
           setTimeout(() => {
             if (successMsg) successMsg.classList.remove('show');
-          }, 5000);
+          }, 8000);
         }
       } else {
         // Supabase not available - show error

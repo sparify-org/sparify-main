@@ -1,5 +1,5 @@
 // ═══════════════════ SAVINGS CALCULATOR ═══════════════════
-(function() {
+(function () {
   const slider = document.getElementById('monthly-money');
   const monthlyValue = document.getElementById('monthly-value');
   const yearlySavings = document.getElementById('yearly-savings');
@@ -47,5 +47,7 @@
   }
 
   slider.addEventListener('input', updateCalculator);
-  updateCalculator(); // Initial calculation
+
+  // Initialize with a small delay to ensure CSS variables are ready
+  setTimeout(updateCalculator, 100);
 })();
