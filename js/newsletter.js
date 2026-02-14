@@ -35,10 +35,14 @@ function initSupabase() {
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    console.log('Newsletter form submission started');
 
     // Try to initialize Supabase if not already done
     if (!supabaseClient) {
-      initSupabase();
+      const initialized = initSupabase();
+      if (!initialized) {
+        console.error('Supabase could not be initialized during submit');
+      }
     }
 
     // Hide previous messages

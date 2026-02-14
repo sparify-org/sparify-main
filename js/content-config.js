@@ -7,7 +7,7 @@
 window.ContentConfig = {
     images: {
         // Das Logo im Footer
-        footerLogo: 'assets/images/sparify_logo_external.png',
+        footerLogo: 'assets/images/SparifyLogo.png',
 
         // Das Bild im Instagram-Post Mockup
         // Du kannst hier einen Pfad zu einem lokalen Bild (z.B. 'assets/images/insta-post.jpg') 

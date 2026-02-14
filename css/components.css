@@ -1052,6 +1052,11 @@ button:focus:not(:focus-visible) {
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
 }
 
+:root[data-theme="dark"] .sticky-mobile-cta {
+  background: rgba(10, 25, 41, 0.9);
+  border-top-color: var(--color-primary-line);
+}
+
 @media (max-width: 768px) {
   .sticky-mobile-cta {
     display: block;

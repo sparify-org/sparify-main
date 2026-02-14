@@ -304,6 +304,14 @@
   background: linear-gradient(180deg, var(--color-base) 0%, var(--color-paper-off) 100%);
 }
 
+:root[data-theme="dark"] .solution-section .lead-text {
+  color: var(--color-ink);
+}
+
+:root[data-theme="dark"] .benefit-item span:last-child {
+  color: var(--color-ink);
+}
+
 .solution-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -872,14 +880,25 @@
 @media (max-width: 768px) {
   .nav-container {
     padding: 0 var(--space-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
-  .mobile-menu-toggle {
-    display: flex;
+  .nav-logo {
+    order: 1;
+    margin-right: auto;
   }
 
   .nav-actions {
+    order: 2;
     gap: var(--space-sm);
+  }
+
+  .mobile-menu-toggle {
+    order: 3;
+    display: flex;
+    margin-left: var(--space-sm);
   }
 
   .nav-links {
