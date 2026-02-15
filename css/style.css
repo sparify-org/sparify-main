@@ -155,10 +155,8 @@ body::after {
   opacity: 0.15;
   animation: sparkleShift 40s linear infinite;
   /* Subtle parallax effect based on mouse position */
-  transform: translate(
-    calc(var(--mx) * -5px),
-    calc(var(--my) * -5px)
-  );
+  transform: translate(calc(var(--mx) * -5px),
+      calc(var(--my) * -5px));
   transition: transform 0.3s ease-out;
 }
 
@@ -253,5 +251,12 @@ body::after {
   .calculator-section,
   .team-section {
     page-break-inside: avoid;
+  }
+}
+
+/* Sticky Mobile CTA Padding */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 80px;
   }
 }

@@ -50,6 +50,11 @@
 .nav-logo img {
   height: 48px;
   width: auto;
+  transition: filter var(--transition-base);
+}
+
+:root:not([data-theme="dark"]) .nav-logo img {
+  filter: brightness(0.15) contrast(1.2);
 }
 
 .nav-links {
@@ -881,6 +886,13 @@
   }
 }
 
+@media (max-width: 968px) {
+  .footer-col h4::after {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+}
+
 @media (max-width: 768px) {
   .nav-container {
     padding: 0 var(--space-sm);
@@ -943,6 +955,7 @@
     border-bottom: 2px solid var(--color-primary-line);
     display: block;
     width: 100%;
+    text-align: center;
   }
 
   .nav-cta {
@@ -996,6 +1009,30 @@
 
   .calc-result-value {
     font-size: 2.5rem;
+  }
+
+  /* Reduce section padding on mobile */
+  .hero,
+  .problem-section,
+  .solution-section,
+  .app-showcase,
+  .box-showcase,
+  .calculator-section,
+  .team-section,
+  .testimonials-section,
+  .pricing-section,
+  .faq-section,
+  .instagram-promo,
+  .newsletter-section {
+    padding: var(--space-2xl) var(--space-sm);
+  }
+
+  .insta-card-mockup {
+    transform: scale(0.8) rotate(6deg) translateY(20px);
+  }
+
+  .insta-card-mockup:hover {
+    transform: scale(0.8) rotate(0deg) translateY(0);
   }
 }
 
@@ -1163,7 +1200,36 @@
 
 
 
-@media (max-width: 968px) {
+@media (max-width: 768px) {
+  .faq-question {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .testimonial-rating,
+  .testimonial-author {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .testimonial-author {
+    flex-direction: column;
+  }
+
+  .pricing-card {
+    align-items: center;
+  }
+
+  .pricing-features li {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .pricing-features li::before {
+    margin-right: 0;
+  }
+
   .insta-container {
     grid-template-columns: 1fr;
     text-align: center;
