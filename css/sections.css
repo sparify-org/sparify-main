@@ -922,7 +922,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    width: 280px;
+    width: min(280px, 85vw);
     background: var(--color-base);
     flex-direction: column;
     padding: 100px 20px 40px;
@@ -969,6 +969,74 @@
 
   .problem-grid {
     grid-template-columns: 1fr;
+  }
+
+  .section-container,
+  .container {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+
+  .app-feature-card,
+  .feature-content,
+  .box-feature-item {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .box-feature-item {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .newsletter-input {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .testimonials-grid,
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-card,
+  .pricing-card,
+  .newsletter-container,
+  .insta-container {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .testimonial-card,
+  .pricing-card {
+    padding: var(--space-lg);
+    text-align: center;
+  }
+
+  .testimonial-author,
+  .testimonial-rating,
+  .pricing-features li {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .newsletter-container,
+  .insta-container {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .insta-card-mockup {
+    width: min(280px, 100%);
+    max-width: 100%;
+  }
+
+  .testimonial-text,
+  .pricing-features li,
+  .newsletter-description,
+  .insta-text {
+    overflow-wrap: anywhere;
   }
 
   .team-grid {
