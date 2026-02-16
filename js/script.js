@@ -114,7 +114,6 @@ const doc = document.documentElement;
     document.querySelector('.solution-section'),
     document.querySelector('.app-showcase'),
     document.querySelector('.box-showcase'),
-    document.querySelector('.calculator-section'),
     document.querySelector('.team-section'),
     ...document.querySelectorAll('.problem-card'),
     ...document.querySelectorAll('.app-feature-card'),
