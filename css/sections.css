@@ -994,51 +994,6 @@
     width: 100%;
   }
 
-  .testimonials-grid,
-  .pricing-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .testimonial-card,
-  .pricing-card,
-  .newsletter-container,
-  .insta-container {
-    width: 100%;
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .testimonial-card,
-  .pricing-card {
-    padding: var(--space-lg);
-    text-align: center;
-  }
-
-  .testimonial-author,
-  .testimonial-rating,
-  .pricing-features li {
-    justify-content: center;
-    text-align: center;
-  }
-
-  .newsletter-container,
-  .insta-container {
-    padding: var(--space-xl) var(--space-md);
-  }
-
-  .insta-card-mockup {
-    width: min(280px, 100%);
-    max-width: 100%;
-  }
-
-  .testimonial-text,
-  .pricing-features li,
-  .newsletter-description,
-  .insta-text {
-    overflow-wrap: anywhere;
-  }
-
   .team-grid {
     grid-template-columns: repeat(2, 1fr);
   }
