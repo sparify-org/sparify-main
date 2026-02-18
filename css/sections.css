@@ -995,7 +995,13 @@
   }
 
   .team-grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .team-member {
+    flex: none;
   }
 }
 
@@ -1056,6 +1062,36 @@
 
   .insta-card-mockup:hover {
     transform: scale(0.8) rotate(0deg) translateY(0);
+  }
+
+  /* Reduce gap values on mobile */
+  .hero-content,
+  .solution-content,
+  .box-content {
+    gap: var(--space-xl);
+  }
+
+  .section-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  /* Instagram container padding */
+  .insta-container {
+    padding: var(--space-lg);
+    border-radius: var(--radius-xl);
+  }
+
+  .insta-title {
+    font-size: 1.5rem;
+  }
+
+  .insta-text {
+    font-size: var(--font-size-base);
+  }
+
+  .insta-button {
+    padding: 12px 24px;
+    font-size: var(--font-size-sm);
   }
 }
 

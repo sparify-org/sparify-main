@@ -535,6 +535,11 @@
   .btn-cta-orange {
     width: 100%;
   }
+
+  /* Fix: Hide decorative accents that cause horizontal overflow */
+  .hero-accent {
+    display: none;
+  }
 }
 
 /* ═══════════════════ FOCUS STYLES ═══════════════════ */
