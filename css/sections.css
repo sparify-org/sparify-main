@@ -1048,7 +1048,6 @@
   .box-showcase,
   .calculator-section,
   .team-section,
-  .testimonials-section,
   .pricing-section,
   .faq-section,
   .instagram-promo,
@@ -1093,15 +1092,6 @@
     padding: 12px 24px;
     font-size: var(--font-size-sm);
   }
-}
-
-/* ═══════════════════ TESTIMONIALS SECTION ═══════════════════ */
-
-.testimonials-section {
-  position: relative;
-  z-index: var(--z-base);
-  padding: var(--space-4xl) var(--space-xl);
-  background: var(--color-paper);
 }
 
 /* ═══════════════════ PRICING SECTION ═══════════════════ */
@@ -1263,17 +1253,6 @@
   .faq-question {
     text-align: center;
     justify-content: center;
-  }
-
-  .testimonial-rating,
-  .testimonial-author {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-
-  .testimonial-author {
-    flex-direction: column;
   }
 
   .pricing-card {
