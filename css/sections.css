@@ -207,10 +207,11 @@
 .hero-content {
   max-width: 1400px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: var(--space-4xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  text-align: center;
   position: relative;
   z-index: var(--z-base);
 }
@@ -232,7 +233,7 @@
 }
 
 .hero-headline {
-  font-size: clamp(2rem, 8vw, 5rem);
+  font-size: clamp(3rem, 10vw, 6.5rem);
   font-weight: var(--font-weight-extrabold);
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-tight);
@@ -244,11 +245,13 @@
 }
 
 .hero-subline {
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
   color: var(--color-ink-mid);
   line-height: var(--line-height-relaxed);
   margin-bottom: var(--space-xl);
-  max-width: 600px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-visual {
@@ -1453,32 +1456,7 @@
   border-radius: 2px;
 }
 
-/* Adjustments for Hero Visual */
-.hero-visual {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.hero-product-img {
-  position: relative;
-  z-index: 1;
-}
-
-@media (max-width: 992px) {
-  .hero-phone-mockup {
-    width: 200px;
-    right: 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-phone-mockup {
-    display: none;
-    /* Hide on small mobile to save space */
-  }
-}
 
 .box-product-img {
   width: 100%;
