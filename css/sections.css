@@ -1404,6 +1404,82 @@
   margin-right: auto;
 }
 
+/* Smartphone Mockup */
+.hero-phone-mockup {
+  position: absolute;
+  top: 10%;
+  right: -5%;
+  width: 260px;
+  z-index: 2;
+  transform: rotate(5deg);
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.25));
+}
+
+.phone-frame {
+  position: relative;
+  width: 100%;
+  padding-bottom: 200%;
+  /* Aspect ratio 1:2 */
+  background: #1a1a1a;
+  border-radius: 40px;
+  border: 8px solid #333;
+  overflow: hidden;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.phone-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.phone-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.phone-button {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 4px;
+  background: #444;
+  border-radius: 2px;
+}
+
+/* Adjustments for Hero Visual */
+.hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-product-img {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 992px) {
+  .hero-phone-mockup {
+    width: 200px;
+    right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-phone-mockup {
+    display: none;
+    /* Hide on small mobile to save space */
+  }
+}
+
 .box-product-img {
   width: 100%;
   max-width: 500px;
