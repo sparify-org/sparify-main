@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <!-- Team Member Avatar: Matteo Cacic (MC) -->
+  <symbol id="avatar-mc" viewBox="0 0 120 120">
+    <defs>
+      <linearGradient id="gradient-mc" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#00B1B7"/>
+        <stop offset="100%" stop-color="#0096a0"/>
+      </linearGradient>
+    </defs>
+    <circle cx="60" cy="60" r="60" fill="url(#gradient-mc)"/>
+    <text x="60" y="75" text-anchor="middle" font-size="40" font-weight="700" fill="white">MC</text>
+  </symbol>
+
+  <!-- Team Member Avatar: Dogukan Senturk (DS) -->
+  <symbol id="avatar-ds" viewBox="0 0 120 120">
+    <defs>
+      <linearGradient id="gradient-ds" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#00d4da"/>
+        <stop offset="100%" stop-color="#00B1B7"/>
+      </linearGradient>
+    </defs>
+    <circle cx="60" cy="60" r="60" fill="url(#gradient-ds)"/>
+    <text x="60" y="75" text-anchor="middle" font-size="40" font-weight="700" fill="white">DS</text>
+  </symbol>
+
+  <!-- Team Member Avatar: Alperen Muratgul (AM) -->
+  <symbol id="avatar-am" viewBox="0 0 120 120">
+    <defs>
+      <linearGradient id="gradient-am" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#e77938"/>
+        <stop offset="100%" stop-color="#d66324"/>
+      </linearGradient>
+    </defs>
+    <circle cx="60" cy="60" r="60" fill="url(#gradient-am)"/>
+    <text x="60" y="75" text-anchor="middle" font-size="40" font-weight="700" fill="white">AM</text>
+  </symbol>
+
+  <!-- Team Member Avatar: Kilian Andre (KA) -->
+  <symbol id="avatar-ka" viewBox="0 0 120 120">
+    <defs>
+      <linearGradient id="gradient-ka" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#f5db6f"/>
+        <stop offset="100%" stop-color="#e8c94e"/>
+      </linearGradient>
+    </defs>
+    <circle cx="60" cy="60" r="60" fill="url(#gradient-ka)"/>
+    <text x="60" y="75" text-anchor="middle" font-size="40" font-weight="700" fill="white">KA</text>
+  </symbol>
+
+  <!-- Team Member Avatar: Vlas Dvoryanov (VD) -->
+  <symbol id="avatar-vd" viewBox="0 0 120 120">
+    <defs>
+      <linearGradient id="gradient-vd" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#00B1B7"/>
+        <stop offset="100%" stop-color="#00d4da"/>
+      </linearGradient>
+    </defs>
+    <circle cx="60" cy="60" r="60" fill="url(#gradient-vd)"/>
+    <text x="60" y="75" text-anchor="middle" font-size="40" font-weight="700" fill="white">VD</text>
+  </symbol>
+</svg>

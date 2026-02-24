@@ -922,7 +922,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    width: 280px;
+    width: min(280px, 85vw);
     background: var(--color-base);
     flex-direction: column;
     padding: 100px 20px 40px;
@@ -971,8 +971,37 @@
     grid-template-columns: 1fr;
   }
 
+  .section-container,
+  .container {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+
+  .app-feature-card,
+  .feature-content,
+  .box-feature-item {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .box-feature-item {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .newsletter-input {
+    min-width: 0;
+    width: 100%;
+  }
+
   .team-grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .team-member {
+    flex: none;
   }
 }
 
@@ -1019,7 +1048,6 @@
   .box-showcase,
   .calculator-section,
   .team-section,
-  .testimonials-section,
   .pricing-section,
   .faq-section,
   .instagram-promo,
@@ -1034,15 +1062,36 @@
   .insta-card-mockup:hover {
     transform: scale(0.8) rotate(0deg) translateY(0);
   }
-}
 
-/* ═══════════════════ TESTIMONIALS SECTION ═══════════════════ */
+  /* Reduce gap values on mobile */
+  .hero-content,
+  .solution-content,
+  .box-content {
+    gap: var(--space-xl);
+  }
 
-.testimonials-section {
-  position: relative;
-  z-index: var(--z-base);
-  padding: var(--space-4xl) var(--space-xl);
-  background: var(--color-paper);
+  .section-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  /* Instagram container padding */
+  .insta-container {
+    padding: var(--space-lg);
+    border-radius: var(--radius-xl);
+  }
+
+  .insta-title {
+    font-size: 1.5rem;
+  }
+
+  .insta-text {
+    font-size: var(--font-size-base);
+  }
+
+  .insta-button {
+    padding: 12px 24px;
+    font-size: var(--font-size-sm);
+  }
 }
 
 /* ═══════════════════ PRICING SECTION ═══════════════════ */
@@ -1204,17 +1253,6 @@
   .faq-question {
     text-align: center;
     justify-content: center;
-  }
-
-  .testimonial-rating,
-  .testimonial-author {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-
-  .testimonial-author {
-    flex-direction: column;
   }
 
   .pricing-card {

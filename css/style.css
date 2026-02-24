@@ -70,7 +70,8 @@ body {
 
 .hero-image,
 .box-product-image,
-.feature-visual svg {
+.feature-visual svg,
+.feature-visual img {
   animation: float 6s ease-in-out infinite;
 }
 
