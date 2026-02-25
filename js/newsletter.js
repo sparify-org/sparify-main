@@ -10,12 +10,9 @@ const SUPABASE_CONFIG = {
 let supabaseClient = null;
 
 function initSupabase() {
-  // Check if supabase is already initialized
   if (supabaseClient) return true;
 
-  // Try to use window.supabase or the one from SUPABASE_CONFIG
   const supabaseLib = window.supabase;
-
   if (typeof supabaseLib !== 'undefined' && SUPABASE_CONFIG.url && SUPABASE_CONFIG.anonKey) {
     try {
       supabaseClient = supabaseLib.createClient(
@@ -49,11 +46,13 @@ function initSupabase() {
     console.log('Newsletter form submission started');
 
     // Ensure Supabase is initialized
-    if (!supabaseClient) {
-      const initialized = initSupabase();
-      if (!initialized) {
-        console.error('Supabase could not be initialized during submit');
+    if (!supabaseClient && !initSupabase()) {
+      console.error('Supabase could not be initialized during submit');
+      if (errorMsg) {
+        errorMsg.textContent = 'Newsletter-Service vorübergehend nicht verfügbar.';
+        errorMsg.classList.add('show');
       }
+      return;
     }
 
     // Hide previous messages
