@@ -534,11 +534,25 @@
   .btn-secondary,
   .btn-cta-orange {
     width: 100%;
+    font-size: clamp(0.65rem, 2.5vw, 0.875rem);
+    white-space: normal;
+    text-align: center;
+    padding: 12px 20px;
   }
 
   /* Fix: Hide decorative accents that cause horizontal overflow */
   .hero-accent {
     display: none;
+  }
+
+  /* Waitlist counter mobile */
+  .waitlist-counter {
+    font-size: var(--font-size-xs);
+    padding: var(--space-xs) var(--space-sm);
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    line-height: 1.4;
   }
 }
 
@@ -897,6 +911,10 @@ button:focus:not(:focus-visible) {
 
   .newsletter-button {
     width: 100%;
+  }
+
+  .newsletter-container {
+    padding: var(--space-xl);
   }
 }
 
