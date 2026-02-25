@@ -206,8 +206,12 @@
       <div class="nav-actions">
         <!-- Dark mode toggle -->
         <button class="theme-toggle" id="theme-toggle" aria-label="Farbschema wechseln">
-          <svg class="theme-icon sun-icon" width="20" height="20"><use href="assets/icons/icons.svg#icon-sun"/></svg>
-          <svg class="theme-icon moon-icon" width="20" height="20"><use href="assets/icons/icons.svg#icon-moon"/></svg>
+          <svg class="theme-icon sun-icon" width="20" height="20">
+            <use href="assets/icons/icons.svg#icon-sun" />
+          </svg>
+          <svg class="theme-icon moon-icon" width="20" height="20">
+            <use href="assets/icons/icons.svg#icon-moon" />
+          </svg>
         </button>
 
         <a href="https://app.sparify.org" target="_blank" rel="noopener noreferrer" class="nav-cta">Starten</a>
@@ -232,217 +236,6 @@
           <a href="#problem" class="btn-secondary">Mehr erfahren</a>
         </div>
       </div>
-
-      <!-- Hero Visual (placeholder for now - will add image later) -->
-      <div class="hero-visual">
-        <!-- Decorative accents -->
-        <div class="hero-accent hero-accent-orange"></div>
-        <div class="hero-accent hero-accent-yellow"></div>
-
-        <!-- Enhanced Hero Visual SVG -->
-        <svg viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="hero-image">
-          <defs>
-            <!-- Gradients -->
-            <linearGradient id="heroGradient" x1="0" y1="0" x2="600" y2="500">
-              <stop offset="0%" stop-color="#f9fafb" />
-              <stop offset="100%" stop-color="#f4f5f6" />
-            </linearGradient>
-            <linearGradient id="piggyGradient" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#00d4da" />
-              <stop offset="100%" stop-color="#00b1b7" />
-            </linearGradient>
-            <linearGradient id="phoneGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#ffffff" />
-              <stop offset="100%" stop-color="#f9fafb" />
-            </linearGradient>
-            <linearGradient id="screenGradient" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#00b1b7" opacity="0.1" />
-              <stop offset="100%" stop-color="#00d4da" opacity="0.05" />
-            </linearGradient>
-            <linearGradient id="connectionGlow" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#00b1b7" opacity="0" />
-              <stop offset="50%" stop-color="#e77938" />
-              <stop offset="100%" stop-color="#00b1b7" opacity="0" />
-            </linearGradient>
-
-            <!-- Filters for depth -->
-            <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur in="SourceAlpha" stdDeviation="8" />
-              <feOffset dx="0" dy="8" result="offsetblur" />
-              <feComponentTransfer>
-                <feFuncA type="linear" slope="0.3" />
-              </feComponentTransfer>
-              <feMerge>
-                <feMergeNode />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-
-            <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur in="SourceAlpha" stdDeviation="4" />
-              <feOffset dx="0" dy="4" result="offsetblur" />
-              <feComponentTransfer>
-                <feFuncA type="linear" slope="0.2" />
-              </feComponentTransfer>
-              <feMerge>
-                <feMergeNode />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
-
-          <!-- Background -->
-          <rect width="600" height="500" rx="32" fill="url(#heroGradient)" />
-
-          <!-- Decorative circles in background -->
-          <circle cx="100" cy="80" r="40" fill="#00b1b7" opacity="0.05" />
-          <circle cx="520" cy="420" r="60" fill="#e77938" opacity="0.05" />
-          <circle cx="50" cy="350" r="30" fill="#f5db6f" opacity="0.08" />
-
-          <!-- Smart Piggybank (Left Side) -->
-          <g transform="translate(150, 200)" filter="url(#shadow)">
-            <!-- Main body -->
-            <ellipse cx="0" cy="20" rx="110" ry="85" fill="url(#piggyGradient)" />
-            <ellipse cx="0" cy="20" rx="110" ry="85" fill="#ffffff" opacity="0.15" />
-
-            <!-- Ear -->
-            <ellipse cx="-65" cy="-35" rx="28" ry="38" fill="url(#piggyGradient)" />
-            <ellipse cx="-65" cy="-35" rx="22" ry="32" fill="#ffffff" opacity="0.2" />
-
-            <!-- Snout -->
-            <ellipse cx="-85" cy="20" rx="35" ry="28" fill="#00b1b7" />
-            <ellipse cx="-85" cy="20" rx="35" ry="28" fill="#ffffff" opacity="0.3" />
-            <circle cx="-93" cy="15" r="5" fill="#0d2136" opacity="0.6" />
-            <circle cx="-93" cy="27" r="5" fill="#0d2136" opacity="0.6" />
-
-            <!-- Eye -->
-            <circle cx="-35" cy="0" r="8" fill="#1a1a1a" />
-            <circle cx="-32" cy="-2" r="3" fill="#ffffff" opacity="0.9" />
-
-            <!-- Coin slot on top -->
-            <rect x="-20" y="-40" width="40" height="6" rx="3" fill="#0d2136" opacity="0.3" />
-
-            <!-- Legs -->
-            <rect x="-75" y="90" width="22" height="40" rx="11" fill="url(#piggyGradient)" />
-            <rect x="-35" y="90" width="22" height="40" rx="11" fill="url(#piggyGradient)" />
-            <rect x="13" y="90" width="22" height="40" rx="11" fill="url(#piggyGradient)" />
-            <rect x="53" y="90" width="22" height="40" rx="11" fill="url(#piggyGradient)" />
-
-            <!-- Add some shine/highlights -->
-            <ellipse cx="-20" cy="0" rx="25" ry="20" fill="#ffffff" opacity="0.4" />
-
-            <!-- Tail -->
-            <path d="M 95 15 Q 115 5 110 -15" stroke="url(#piggyGradient)" stroke-width="8" fill="none"
-              stroke-linecap="round" />
-
-            <!-- Sensor indicators (glowing) -->
-            <circle cx="10" cy="-20" r="6" fill="#00d4da">
-              <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" />
-            </circle>
-            <circle cx="40" cy="30" r="6" fill="#e77938">
-              <animate attributeName="opacity" values="0.3;0.9;0.3" dur="2.5s" repeatCount="indefinite" />
-            </circle>
-          </g>
-
-          <!-- Animated Connection Line -->
-          <g>
-            <line x1="270" y1="250" x2="380" y2="250" stroke="url(#connectionGlow)" stroke-width="3" opacity="0.6">
-              <animate attributeName="x1" values="270;290;270" dur="3s" repeatCount="indefinite" />
-              <animate attributeName="x2" values="380;360;380" dur="3s" repeatCount="indefinite" />
-            </line>
-            <line x1="270" y1="250" x2="380" y2="250" stroke="#e77938" stroke-width="2" stroke-dasharray="8,8"
-              opacity="0.4">
-              <animate attributeName="stroke-dashoffset" from="0" to="16" dur="1s" repeatCount="indefinite" />
-            </line>
-
-            <!-- Connection arrows -->
-            <path d="M 375 245 L 380 250 L 375 255" fill="none" stroke="#e77938" stroke-width="2.5"
-              stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M 275 245 L 270 250 L 275 255" fill="none" stroke="#00b1b7" stroke-width="2.5"
-              stroke-linecap="round" stroke-linejoin="round" />
-          </g>
-
-          <!-- Modern Smartphone (Right Side) -->
-          <g transform="translate(450, 180)" filter="url(#shadow)">
-            <!-- Phone body with depth -->
-            <rect x="-70" y="0" width="140" height="270" rx="24" fill="#1a1a1a" />
-            <rect x="-67" y="3" width="134" height="264" rx="21" fill="url(#phoneGradient)" />
-
-            <!-- Screen bezel -->
-            <rect x="-62" y="15" width="124" height="240" rx="16" fill="#000000" />
-
-            <!-- Screen content -->
-            <rect x="-60" y="17" width="120" height="236" rx="14" fill="url(#screenGradient)" />
-
-            <!-- Top notch/camera -->
-            <rect x="-20" y="20" width="40" height="4" rx="2" fill="#1a1a1a" />
-            <circle cx="0" cy="22" r="3" fill="#1a1a1a" opacity="0.5" />
-
-            <!-- App UI Elements -->
-            <!-- Header with logo -->
-            <circle cx="0" cy="45" r="15" fill="#00b1b7" opacity="0.9" />
-            <text x="0" y="50" font-family="Montserrat" font-size="12" font-weight="700" fill="#ffffff"
-              text-anchor="middle">S</text>
-
-            <!-- Balance card -->
-            <rect x="-50" y="75" width="100" height="60" rx="12" fill="#00b1b7" opacity="0.15" />
-            <rect x="-45" y="80" width="40" height="8" rx="4" fill="#00b1b7" opacity="0.3" />
-            <text x="0" y="110" font-family="Montserrat" font-size="20" font-weight="700" fill="#00b1b7"
-              text-anchor="middle">€ 247</text>
-
-            <!-- Progress bars (savings goals) -->
-            <rect x="-50" y="150" width="100" height="6" rx="3" fill="#e0e0e0" opacity="0.3" />
-            <rect x="-50" y="150" width="70" height="6" rx="3" fill="#00b1b7" opacity="0.8" />
-
-            <rect x="-50" y="165" width="100" height="6" rx="3" fill="#e0e0e0" opacity="0.3" />
-            <rect x="-50" y="165" width="45" height="6" rx="3" fill="#e77938" opacity="0.8" />
-
-            <rect x="-50" y="180" width="100" height="6" rx="3" fill="#e0e0e0" opacity="0.3" />
-            <rect x="-50" y="180" width="85" height="6" rx="3" fill="#f5db6f" opacity="0.8" />
-
-            <!-- Bottom navigation icons -->
-            <g opacity="0.4">
-              <circle cx="-40" cy="230" r="8" fill="#00b1b7" />
-              <circle cx="-10" cy="230" r="8" fill="#1a1a1a" />
-              <circle cx="20" cy="230" r="8" fill="#1a1a1a" />
-              <circle cx="50" cy="230" r="8" fill="#1a1a1a" />
-            </g>
-
-            <!-- Home button indicator -->
-            <rect x="-25" y="260" width="50" height="4" rx="2" fill="#1a1a1a" opacity="0.3" />
-          </g>
-
-          <!-- Floating particles/sparkles for magic effect -->
-          <g opacity="0.6">
-            <circle cx="310" cy="150" r="3" fill="#00b1b7">
-              <animate attributeName="cy" values="150;140;150" dur="3s" repeatCount="indefinite" />
-              <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite" />
-            </circle>
-            <circle cx="340" cy="320" r="4" fill="#e77938">
-              <animate attributeName="cy" values="320;310;320" dur="2.5s" repeatCount="indefinite" />
-              <animate attributeName="opacity" values="0.4;1;0.4" dur="2.5s" repeatCount="indefinite" />
-            </circle>
-            <circle cx="290" cy="380" r="2" fill="#f5db6f">
-              <animate attributeName="cy" values="380;370;380" dur="2s" repeatCount="indefinite" />
-              <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2s" repeatCount="indefinite" />
-            </circle>
-          </g>
-
-          <!-- Bottom text with icon -->
-          <g transform="translate(300, 460)">
-            <text x="0" y="0" font-family="Montserrat" font-size="22" font-weight="700" fill="#00b1b7"
-              text-anchor="middle">
-              Box + App = Sparify
-            </text>
-            <circle cx="-100" cy="-4" r="12" fill="#00b1b7" opacity="0.15" />
-            <text x="-100" y="2" font-family="Arial" font-size="18" font-weight="700" fill="#00b1b7"
-              text-anchor="middle">+</text>
-            <circle cx="100" cy="-4" r="12" fill="#00b1b7" opacity="0.15" />
-            <text x="100" y="2" font-family="Arial" font-size="18" font-weight="700" fill="#00b1b7"
-              text-anchor="middle">=</text>
-          </g>
-        </svg>
-      </div>
     </div>
   </section>
 
@@ -458,7 +251,9 @@
         <!-- Problem Card 1 -->
         <div class="problem-card reveal">
           <div class="problem-icon problem-icon-teal">
-            <svg width="40" height="40"><use href="assets/icons/icons.svg#icon-question"/></svg>
+            <svg width="40" height="40">
+              <use href="assets/icons/icons.svg#icon-question" />
+            </svg>
           </div>
           <h3>"Wo ist mein Geld hin?"</h3>
           <p>Klassische Sparschweine sind wie eine Blackbox – du weißt nie genau, wie viel drin ist.</p>
@@ -467,7 +262,9 @@
         <!-- Problem Card 2 -->
         <div class="problem-card reveal">
           <div class="problem-icon problem-icon-teal">
-            <svg width="40" height="40"><use href="assets/icons/icons.svg#icon-book"/></svg>
+            <svg width="40" height="40">
+              <use href="assets/icons/icons.svg#icon-book" />
+            </svg>
           </div>
           <h3>Finanzbildung fehlt</h3>
           <p>Finanzbildung kommt in der Schule oft zu kurz – dabei ist sie so wichtig.</p>
@@ -476,7 +273,9 @@
         <!-- Problem Card 3 -->
         <div class="problem-card reveal">
           <div class="problem-icon problem-icon-teal">
-            <svg width="40" height="40"><use href="assets/icons/icons.svg#icon-lock"/></svg>
+            <svg width="40" height="40">
+              <use href="assets/icons/icons.svg#icon-lock" />
+            </svg>
           </div>
           <h3>Digitale Hürden</h3>
           <p>Der Einstieg in die digitale Welt ist ohne eigenes Bankkonto oft kompliziert.</p>
@@ -517,24 +316,8 @@
         </div>
 
         <div class="solution-visual">
-          <!-- Placeholder connection illustration -->
-          <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" class="solution-illustration">
-            <!-- Box -->
-            <circle cx="100" cy="150" r="60" fill="#00b1b7" opacity="0.1" />
-            <circle cx="100" cy="150" r="60" stroke="#00b1b7" stroke-width="3" />
-            <text x="100" y="160" font-family="Montserrat" font-size="14" font-weight="600" fill="#00b1b7"
-              text-anchor="middle">Box</text>
+          <img src="BoxPicture2.png" alt="Sparify Verbindung" class="solution-product-img reveal" loading="lazy">
 
-            <!-- Connection -->
-            <line x1="160" y1="150" x2="240" y2="150" stroke="#e77938" stroke-width="3" stroke-dasharray="8,4" />
-            <path d="M 230 145 L 240 150 L 230 155" fill="#e77938" />
-
-            <!-- App -->
-            <circle cx="300" cy="150" r="60" fill="#00b1b7" opacity="0.1" />
-            <circle cx="300" cy="150" r="60" stroke="#00b1b7" stroke-width="3" />
-            <text x="300" y="160" font-family="Montserrat" font-size="14" font-weight="600" fill="#00b1b7"
-              text-anchor="middle">App</text>
-          </svg>
         </div>
       </div>
     </div>
@@ -552,11 +335,14 @@
         <!-- Feature 1 - Teal -->
         <div class="app-feature-card reveal">
           <div class="feature-visual">
-            <img src="assets/images/WhatsApp Image 2026-02-16 at 11.10.05 AM.jpeg" alt="Sparify App Screenshot 1" loading="lazy" class="feature-svg" />
+            <img src="assets/images/WhatsApp Image 2026-02-16 at 11.10.05 AM.jpeg" alt="Sparify App Screenshot 1"
+              loading="lazy" class="feature-svg" />
           </div>
           <div class="feature-content">
             <div class="feature-icon feature-icon-teal">
-              <svg width="32" height="32"><use href="assets/icons/icons.svg#icon-chart"/></svg>
+              <svg width="32" height="32">
+                <use href="assets/icons/icons.svg#icon-chart" />
+              </svg>
             </div>
             <h3>Kontostand im Blick</h3>
             <p>Auf dem Dashboard siehst du sofort deinen aktuellen Kontostand und alle Sparboxen auf einen Blick.</p>
@@ -566,11 +352,14 @@
         <!-- Feature 2 - Orange -->
         <div class="app-feature-card reveal">
           <div class="feature-visual">
-            <img src="assets/images/WhatsApp Image 2026-02-16 at 11.10.05 AM (1).jpeg" alt="Sparify App Screenshot 2" loading="lazy" class="feature-svg" />
+            <img src="assets/images/WhatsApp Image 2026-02-16 at 11.10.05 AM (1).jpeg" alt="Sparify App Screenshot 2"
+              loading="lazy" class="feature-svg" />
           </div>
           <div class="feature-content">
             <div class="feature-icon feature-icon-orange">
-              <svg width="32" height="32"><use href="assets/icons/icons.svg#icon-shop"/></svg>
+              <svg width="32" height="32">
+                <use href="assets/icons/icons.svg#icon-shop" />
+              </svg>
             </div>
             <h3>Shop & Belohnungen</h3>
             <p>Entdecke im Shop Gutscheine, Avatare und Badges und sammle Belohnungen für dein Sparverhalten.</p>
@@ -580,11 +369,14 @@
         <!-- Feature 3 - Yellow -->
         <div class="app-feature-card reveal">
           <div class="feature-visual">
-            <img src="assets/images/WhatsApp Image 2026-02-16 at 11.10.05 AM (2).jpeg" alt="Sparify App Screenshot 3" loading="lazy" class="feature-svg" />
+            <img src="assets/images/WhatsApp Image 2026-02-16 at 11.10.05 AM (2).jpeg" alt="Sparify App Screenshot 3"
+              loading="lazy" class="feature-svg" />
           </div>
           <div class="feature-content">
             <div class="feature-icon feature-icon-yellow">
-              <svg width="32" height="32"><use href="assets/icons/icons.svg#icon-pie"/></svg>
+              <svg width="32" height="32">
+                <use href="assets/icons/icons.svg#icon-pie" />
+              </svg>
             </div>
             <h3>Profileinstellungen</h3>
             <p>Verwalte Profil, Design und Kinder-Modus einfach in den Einstellungen.</p>
@@ -603,178 +395,19 @@
       </div>
 
       <div class="box-content">
-        <!-- Enhanced 3D Isometric Box Visual -->
+        <!-- Box Visual (product image) -->
         <div class="box-visual reveal">
-          <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="box-product-image">
-            <defs>
-              <!-- Gradients for 3D effect -->
-              <linearGradient id="boxTopGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#00d4da" />
-                <stop offset="100%" stop-color="#00b1b7" />
-              </linearGradient>
-              <linearGradient id="boxSideGrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#00b1b7" />
-                <stop offset="100%" stop-color="#0096a0" />
-              </linearGradient>
-              <linearGradient id="boxFrontGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#00c4cb" />
-                <stop offset="100%" stop-color="#00b1b7" />
-              </linearGradient>
-              <radialGradient id="glowGrad">
-                <stop offset="0%" stop-color="#00d4da" stop-opacity="0.6" />
-                <stop offset="100%" stop-color="#00b1b7" stop-opacity="0" />
-              </radialGradient>
+          <img src="BoxPicture3.png" alt="Sparify Box Close-up" class="box-product-img" loading="lazy">
 
-              <!-- Shadow filter -->
-              <filter id="boxShadow">
-                <feGaussianBlur in="SourceAlpha" stdDeviation="10" />
-                <feOffset dx="0" dy="15" result="offsetblur" />
-                <feComponentTransfer>
-                  <feFuncA type="linear" slope="0.3" />
-                </feComponentTransfer>
-                <feMerge>
-                  <feMergeNode />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-            </defs>
-
-            <!-- Glow effect under box -->
-            <ellipse cx="250" cy="420" rx="180" ry="40" fill="url(#glowGrad)" opacity="0.5" />
-
-            <!-- 3D Isometric Piggybank -->
-            <g transform="translate(250, 220)" filter="url(#boxShadow)">
-              <!-- Back legs -->
-              <g opacity="0.85">
-                <path d="M -50 100 L -50 160 L -30 165 L -30 105 Z" fill="url(#boxSideGrad)" />
-                <ellipse cx="-40" cy="100" rx="10" ry="7" fill="url(#boxTopGrad)" />
-
-                <path d="M 30 100 L 30 160 L 50 165 L 50 105 Z" fill="url(#boxSideGrad)" />
-                <ellipse cx="40" cy="100" rx="10" ry="7" fill="url(#boxTopGrad)" />
-              </g>
-
-              <!-- Main body - bottom -->
-              <ellipse cx="0" cy="20" rx="130" ry="95" fill="url(#boxFrontGrad)" />
-
-              <!-- Body shadow/depth -->
-              <ellipse cx="0" cy="20" rx="130" ry="95" fill="#000000" opacity="0.08" />
-
-              <!-- Main body - top highlight -->
-              <ellipse cx="0" cy="0" rx="130" ry="95" fill="url(#boxTopGrad)" />
-
-              <!-- Top shine -->
-              <ellipse cx="-30" cy="-10" rx="50" ry="35" fill="#ffffff" opacity="0.25" />
-              <ellipse cx="-30" cy="-10" rx="30" ry="20" fill="#ffffff" opacity="0.15" />
-
-              <!-- Ear -->
-              <g transform="translate(-75, -45)">
-                <ellipse cx="0" cy="0" rx="32" ry="42" fill="url(#boxTopGrad)" />
-                <ellipse cx="-5" cy="0" rx="20" ry="35" fill="#ffffff" opacity="0.2" />
-              </g>
-
-              <!-- Snout -->
-              <g transform="translate(-100, 15)">
-                <ellipse cx="0" cy="0" rx="38" ry="32" fill="#00a8ae" />
-                <ellipse cx="0" cy="0" rx="38" ry="32" fill="#ffffff" opacity="0.15" />
-
-                <!-- Nostrils -->
-                <ellipse cx="-8" cy="-5" rx="6" ry="5" fill="#0d2136" opacity="0.5" />
-                <ellipse cx="-8" cy="8" rx="6" ry="5" fill="#0d2136" opacity="0.5" />
-
-                <!-- Nostril highlights -->
-                <ellipse cx="-6" cy="-6" rx="2" ry="1.5" fill="#ffffff" opacity="0.4" />
-                <ellipse cx="-6" cy="7" rx="2" ry="1.5" fill="#ffffff" opacity="0.4" />
-              </g>
-
-              <!-- Eye -->
-              <g transform="translate(-40, -5)">
-                <circle cx="0" cy="0" r="11" fill="#1a1a1a" />
-                <circle cx="2" cy="-2" r="4" fill="#ffffff" opacity="0.9" />
-                <circle cx="3" cy="-1" r="2" fill="#ffffff" />
-              </g>
-
-              <!-- Coin slot with depth -->
-              <g transform="translate(0, -60)">
-                <rect x="-25" y="0" width="50" height="10" rx="5" fill="#0d2136" opacity="0.4" />
-                <rect x="-25" y="-2" width="50" height="8" rx="4" fill="#000000" opacity="0.6" />
-                <rect x="-24" y="-2" width="48" height="2" rx="1" fill="#ffffff" opacity="0.1" />
-              </g>
-
-              <!-- Front legs -->
-              <g>
-                <path d="M -50 100 L -50 160 L -30 165 L -30 105 Z" fill="url(#boxSideGrad)" />
-                <ellipse cx="-40" cy="100" rx="10" ry="7" fill="url(#boxTopGrad)" />
-                <ellipse cx="-40" cy="163" rx="11" ry="8" fill="#008a94" />
-
-                <path d="M 30 100 L 30 160 L 50 165 L 50 105 Z" fill="url(#boxSideGrad)" />
-                <ellipse cx="40" cy="100" rx="10" ry="7" fill="url(#boxTopGrad)" />
-                <ellipse cx="40" cy="163" rx="11" ry="8" fill="#008a94" />
-              </g>
-
-              <!-- Tail with curl -->
-              <path d="M 110 10 Q 135 0 135 -20 Q 135 -35 125 -40" stroke="url(#boxTopGrad)" stroke-width="10"
-                fill="none" stroke-linecap="round" />
-              <path d="M 110 10 Q 135 0 135 -20" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round"
-                opacity="0.3" />
-
-              <!-- Smart Sensors with glow -->
-              <g>
-                <!-- Sensor 1 - Top -->
-                <circle cx="20" cy="-35" r="10" fill="#00d4da" opacity="0.2">
-                  <animate attributeName="r" values="10;14;10" dur="2s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2s" repeatCount="indefinite" />
-                </circle>
-                <circle cx="20" cy="-35" r="7" fill="#00d4da">
-                  <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" />
-                </circle>
-                <circle cx="20" cy="-35" r="4" fill="#ffffff" opacity="0.8" />
-
-                <!-- Sensor 2 - Side -->
-                <circle cx="70" cy="30" r="10" fill="#e77938" opacity="0.2">
-                  <animate attributeName="r" values="10;14;10" dur="2.5s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2.5s" repeatCount="indefinite" />
-                </circle>
-                <circle cx="70" cy="30" r="7" fill="#e77938">
-                  <animate attributeName="opacity" values="0.6;1;0.6" dur="2.5s" repeatCount="indefinite" />
-                </circle>
-                <circle cx="70" cy="30" r="4" fill="#ffffff" opacity="0.8" />
-
-                <!-- Sensor indicator lights -->
-                <g opacity="0.7">
-                  <rect x="15" y="-38" width="2" height="2" rx="1" fill="#00d4da">
-                    <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" repeatCount="indefinite" />
-                  </rect>
-                  <rect x="23" y="-38" width="2" height="2" rx="1" fill="#00d4da">
-                    <animate attributeName="opacity" values="0.3;1;0.3" dur="1s" begin="0.3s"
-                      repeatCount="indefinite" />
-                  </rect>
-                </g>
-              </g>
-
-              <!-- Reflection highlight on body -->
-              <ellipse cx="15" cy="-15" rx="40" ry="25" fill="#ffffff" opacity="0.15" transform="rotate(-15 15 -15)" />
-            </g>
-
-            <!-- Product info badge -->
-            <g transform="translate(400, 100)">
-              <rect x="-50" y="0" width="100" height="60" rx="12" fill="#ffffff" filter="url(#boxShadow)"
-                opacity="0.95" />
-              <text x="0" y="25" font-family="Montserrat" font-size="11" font-weight="600" fill="#00b1b7"
-                text-anchor="middle">SMART</text>
-              <text x="0" y="42" font-family="Montserrat" font-size="14" font-weight="800" fill="#1a1a1a"
-                text-anchor="middle">SPARBOX</text>
-              <circle cx="-30" cy="15" r="3" fill="#00d4da">
-                <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite" />
-              </circle>
-            </g>
-          </svg>
         </div>
 
         <!-- Box Features -->
         <div class="box-features">
           <div class="box-feature-item reveal">
             <div class="box-feature-icon box-icon-teal">
-              <svg width="32" height="32"><use href="assets/icons/icons.svg#icon-dollar"/></svg>
+              <svg width="32" height="32">
+                <use href="assets/icons/icons.svg#icon-dollar" />
+              </svg>
             </div>
             <div>
               <h4>Smarte Sensoren</h4>
@@ -784,7 +417,9 @@
 
           <div class="box-feature-item reveal">
             <div class="box-feature-icon box-icon-orange">
-              <svg width="32" height="32"><use href="assets/icons/icons.svg#icon-layers"/></svg>
+              <svg width="32" height="32">
+                <use href="assets/icons/icons.svg#icon-layers" />
+              </svg>
             </div>
             <div>
               <h4>Robust & Modern</h4>
@@ -794,7 +429,9 @@
 
           <div class="box-feature-item reveal">
             <div class="box-feature-icon box-icon-yellow">
-              <svg width="32" height="32"><use href="assets/icons/icons.svg#icon-shield"/></svg>
+              <svg width="32" height="32">
+                <use href="assets/icons/icons.svg#icon-shield" />
+              </svg>
             </div>
             <div>
               <h4>Sichere Verbindung</h4>
@@ -831,7 +468,8 @@
             <li>Statistiken & Analysen</li>
             <li>Finanzbildung</li>
           </ul>
-          <a href="https://app.sparify.org" target="_blank" rel="noopener noreferrer" class="btn-secondary">App herunterladen</a>
+          <a href="https://app.sparify.org" target="_blank" rel="noopener noreferrer" class="btn-secondary">App
+            herunterladen</a>
         </div>
 
         <!-- Box + App Bundle -->
@@ -866,7 +504,9 @@
         <div class="faq-item reveal">
           <button class="faq-question" aria-expanded="false">
             <span>Wie funktioniert die Sparbox?</span>
-            <svg class="faq-icon"><use href="assets/icons/icons.svg#icon-chevron"/></svg>
+            <svg class="faq-icon">
+              <use href="assets/icons/icons.svg#icon-chevron" />
+            </svg>
           </button>
           <div class="faq-answer">
             <p>
@@ -882,7 +522,9 @@
         <div class="faq-item reveal">
           <button class="faq-question" aria-expanded="false">
             <span>Brauche ich ein Bankkonto?</span>
-            <svg class="faq-icon"><use href="assets/icons/icons.svg#icon-chevron"/></svg>
+            <svg class="faq-icon">
+              <use href="assets/icons/icons.svg#icon-chevron" />
+            </svg>
           </button>
           <div class="faq-answer">
             <p>
@@ -896,7 +538,9 @@
         <div class="faq-item reveal">
           <button class="faq-question" aria-expanded="false">
             <span>Ist die App kostenlos?</span>
-            <svg class="faq-icon"><use href="assets/icons/icons.svg#icon-chevron"/></svg>
+            <svg class="faq-icon">
+              <use href="assets/icons/icons.svg#icon-chevron" />
+            </svg>
           </button>
           <div class="faq-answer">
             <p>
@@ -911,7 +555,9 @@
         <div class="faq-item reveal">
           <button class="faq-question" aria-expanded="false">
             <span>Wann ist die Sparbox verfügbar?</span>
-            <svg class="faq-icon"><use href="assets/icons/icons.svg#icon-chevron"/></svg>
+            <svg class="faq-icon">
+              <use href="assets/icons/icons.svg#icon-chevron" />
+            </svg>
           </button>
           <div class="faq-answer">
             <p>
@@ -925,7 +571,9 @@
         <div class="faq-item reveal">
           <button class="faq-question" aria-expanded="false">
             <span>Welche Geräte werden unterstützt?</span>
-            <svg class="faq-icon"><use href="assets/icons/icons.svg#icon-chevron"/></svg>
+            <svg class="faq-icon">
+              <use href="assets/icons/icons.svg#icon-chevron" />
+            </svg>
           </button>
           <div class="faq-answer">
             <p>
@@ -939,7 +587,9 @@
         <div class="faq-item reveal">
           <button class="faq-question" aria-expanded="false">
             <span>Wie sicher sind meine Daten?</span>
-            <svg class="faq-icon"><use href="assets/icons/icons.svg#icon-chevron"/></svg>
+            <svg class="faq-icon">
+              <use href="assets/icons/icons.svg#icon-chevron" />
+            </svg>
           </button>
           <div class="faq-answer">
             <p>
@@ -1092,14 +742,18 @@
       <div class="insta-container reveal">
         <div class="insta-content">
           <div class="insta-icon-main">
-            <svg width="48" height="48"><use href="assets/icons/icons.svg#icon-instagram-large"/></svg>
+            <svg width="48" height="48">
+              <use href="assets/icons/icons.svg#icon-instagram-large" />
+            </svg>
           </div>
           <h2 class="insta-title">Folge uns auf Instagram!</h2>
           <p class="insta-text">Verpasse keine Updates, exklusive Einblicke hinter die Kulissen und die besten Tipps zum
             Sparen. Werde Teil unserer Community!</p>
           <a href="https://www.instagram.com/sparifyofficial/" target="_blank" class="insta-button">
             <span>@sparifyofficial</span>
-            <svg width="16" height="16"><use href="assets/icons/icons.svg#icon-external"/></svg>
+            <svg width="16" height="16">
+              <use href="assets/icons/icons.svg#icon-external" />
+            </svg>
           </a>
         </div>
         <div class="insta-visual">
@@ -1175,10 +829,14 @@
         <p class="footer-tagline">Die Zukunft des Sparens.</p>
         <div class="footer-social">
           <a href="mailto:support@sparify.org" aria-label="Email">
-            <svg width="20" height="20"><use href="assets/icons/icons.svg#icon-email"/></svg>
+            <svg width="20" height="20">
+              <use href="assets/icons/icons.svg#icon-email" />
+            </svg>
           </a>
           <a href="https://www.instagram.com/sparifyofficial/" target="_blank" aria-label="Instagram">
-            <svg width="20" height="20"><use href="assets/icons/icons.svg#icon-instagram"/></svg>
+            <svg width="20" height="20">
+              <use href="assets/icons/icons.svg#icon-instagram" />
+            </svg>
           </a>
         </div>
       </div>
