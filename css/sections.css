@@ -180,7 +180,7 @@
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.3);
   z-index: var(--z-overlay);
   opacity: 0;
   transition: opacity var(--transition-base);
@@ -968,11 +968,27 @@
 
   .nav-links a {
     font-size: var(--font-size-lg);
-    padding: var(--space-md) 0;
-    border-bottom: 2px solid var(--color-primary-line);
+    padding: var(--space-md) var(--space-sm);
+    border-bottom: 1px solid var(--color-primary-line);
     display: block;
     width: 100%;
     text-align: center;
+    color: var(--color-ink);
+    border-radius: var(--radius-md);
+  }
+
+  .nav-links li:last-child a {
+    border-bottom: none;
+  }
+
+  .nav-links a:active {
+    background: var(--color-primary-glow);
+    color: var(--color-primary);
+  }
+
+  /* Remove desktop active indicator (double line) on mobile */
+  .nav-links a.active::after {
+    display: none;
   }
 
   .nav-cta {
