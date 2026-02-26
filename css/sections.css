@@ -145,7 +145,7 @@
 
 /* Mobile menu toggle */
 .mobile-menu-toggle {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   gap: 6px;
