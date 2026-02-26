@@ -46,6 +46,19 @@ GRANT USAGE ON SCHEMA public TO anon, authenticated;
 GRANT INSERT ON public.subscribers TO anon;
 GRANT ALL ON public.subscribers TO authenticated;
 
+-- Sichere Funktion für öffentlichen Wartelisten-Counter (ohne E-Mail-Daten offenzulegen)
+CREATE OR REPLACE FUNCTION public.get_subscribers_count()
+RETURNS bigint
+LANGUAGE sql
+SECURITY DEFINER
+SET search_path = public
+AS $$
+    SELECT COUNT(*) FROM public.subscribers;
+$$;
+
+REVOKE ALL ON FUNCTION public.get_subscribers_count() FROM PUBLIC;
+GRANT EXECUTE ON FUNCTION public.get_subscribers_count() TO anon, authenticated;
+
 -- Fertig! Die Tabelle ist jetzt sicher:
 -- - Anonyme Benutzer können NUR einfügen (nicht lesen/ändern/löschen)
 -- - Authentifizierte Benutzer haben vollen Zugriff
