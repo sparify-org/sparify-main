@@ -246,6 +246,39 @@ if (document.readyState === 'loading') {
   });
 })();
 
+// ═══════════════════ MOBILE CTA LINK SWITCH ═══════════════════
+(function() {
+  const MOBILE_BREAKPOINT = 768;
+  const appUrl = 'https://app.sparify.org';
+  const ctaLinks = document.querySelectorAll('[data-mobile-app-link="true"]');
+
+  if (ctaLinks.length === 0) return;
+
+  function updateCtaTargets() {
+    const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
+
+    ctaLinks.forEach((link) => {
+      if (isMobile) {
+        link.setAttribute('href', appUrl);
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+      } else {
+        link.setAttribute('href', '#newsletter');
+        link.removeAttribute('target');
+        link.removeAttribute('rel');
+      }
+    });
+  }
+
+  updateCtaTargets();
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(updateCtaTargets, 150);
+  });
+})();
+
 // ═══════════════════ IMAGE LAZY LOADING FALLBACK ═══════════════════
 // For browsers that don't support native lazy loading
 (function() {
