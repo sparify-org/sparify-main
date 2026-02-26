@@ -32,6 +32,8 @@ function formatCount(value) {
   return new Intl.NumberFormat('de-DE').format(value);
 }
 
+const SUBSCRIBER_DISPLAY_OFFSET = 100;
+
 async function updateSubscribersCount() {
   const countElement = document.getElementById('subscribers-count');
   if (!countElement) return;
@@ -49,7 +51,7 @@ async function updateSubscribersCount() {
     }
 
     if (typeof data === 'number') {
-      countElement.textContent = formatCount(data);
+      countElement.textContent = formatCount(data + SUBSCRIBER_DISPLAY_OFFSET);
     }
   } catch (error) {
     console.error('Unexpected subscribers count error:', error);
@@ -209,4 +211,3 @@ async function updateSubscribersCount() {
     });
   }
 })();
-
