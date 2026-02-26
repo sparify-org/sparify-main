@@ -28,6 +28,34 @@ function initSupabase() {
   }
   return false;
 }
+function formatCount(value) {
+  return new Intl.NumberFormat('de-DE').format(value);
+}
+
+async function updateSubscribersCount() {
+  const countElement = document.getElementById('subscribers-count');
+  if (!countElement) return;
+
+  if (!supabaseClient && !initSupabase()) {
+    return;
+  }
+
+  try {
+    const { data, error } = await supabaseClient.rpc('get_subscribers_count');
+
+    if (error) {
+      console.error('Failed to fetch subscribers count:', error);
+      return;
+    }
+
+    if (typeof data === 'number') {
+      countElement.textContent = formatCount(data);
+    }
+  } catch (error) {
+    console.error('Unexpected subscribers count error:', error);
+  }
+}
+
 
 (function () {
   const form = document.getElementById('newsletter-form');
@@ -39,6 +67,7 @@ function initSupabase() {
 
   // Initialize Supabase as soon as possible
   initSupabase();
+  updateSubscribersCount();
 
   form.addEventListener('submit', async (e) => {
     // ALWAYS prevent default first
@@ -121,6 +150,8 @@ function initSupabase() {
             form.classList.add('form-success-pulse');
             setTimeout(() => form.classList.remove('form-success-pulse'), 1000);
           }
+
+          updateSubscribersCount();
 
           // Clear input
           if (input) {
